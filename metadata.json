@@ -1,0 +1,6 @@
+{
+  "name": "GnutriElev - Nutricionista",
+  "description": "Landing page de alta conversão para nutricionista com foco em credibilidade, estética Apple premium e agendamento via WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
