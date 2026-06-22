@@ -34,7 +34,7 @@ export const seoConfig = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@gnutrielev',
-    creator: '@gnutrielev',
+    site: '@g_nutrielev',
+    creator: '@g_nutrielev',
   },
 } as const;

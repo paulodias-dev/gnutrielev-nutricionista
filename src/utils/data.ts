@@ -64,7 +64,7 @@ export const NUTRI_PROFILE = {
   whatsappUrl: 'https://wa.me/5579981425786?text=Ol%C3%A1%2C%20Dra.%20Gislene!%20Gostaria%20de%20agendar%20uma%20consulta%20e%20saber%20mais%20detalhes%20sobre%20o%20acompanhamento%20nutricional.',
   address: 'Atendimento On-line e Presencial (Av. General Euclides Figueiredo, 425 - Japãozinho, Aracaju - SE)',
   email: 'contato@gnutrielev.com.br',
-  instagram: '@gnutrielev',
+  instagram: '@g_nutrielev',
 };
 
 export const CLINIC_METRICS: Metric[] = [
