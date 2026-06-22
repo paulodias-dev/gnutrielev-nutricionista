@@ -12,10 +12,12 @@ import { Testimonials } from './components/sections/Testimonials';
 import { FAQ } from './components/sections/FAQ';
 import { Footer } from './components/layout/Footer';
 import { FloatingWhatsApp } from './components/ui/FloatingWhatsApp';
+import { SEO } from './components/seo/SEO';
 
 export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-emerald-100 selection:text-emerald-950 flex flex-col justify-between">
+      <SEO />
       {/* Cupertino premium sticky sticky navigation bar */}
       <Header />
 
@@ -34,4 +36,3 @@ export default function App() {
     </div>
   );
 }
-
