@@ -6,25 +6,34 @@ interface SEOProps {
   title?: string;
   description?: string;
   keywords?: string[];
+  canonicalPath?: string;
+  noIndex?: boolean;
 }
 
-export const SEO: React.FC<SEOProps> = ({ title, description, keywords }) => {
+const buildCanonicalUrl = (path = '/') => {
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`;
+  return `${seoConfig.baseUrl}${normalizedPath === '/' ? '' : normalizedPath}`;
+};
+
+export const SEO: React.FC<SEOProps> = ({ title, description, keywords, canonicalPath = '/', noIndex = false }) => {
   const pageTitle = title?.trim()
     ? `${title.trim()} | ${seoConfig.siteName}`
     : seoConfig.title;
   const pageDescription = description?.trim() || seoConfig.description;
   const pageKeywords = keywords?.length ? keywords : seoConfig.keywords;
+  const canonicalUrl = buildCanonicalUrl(canonicalPath);
 
   return (
     <Helmet>
       <title>{pageTitle}</title>
       <meta name="description" content={pageDescription} />
       <meta name="keywords" content={pageKeywords.join(', ')} />
-      <link rel="canonical" href={seoConfig.openGraph.url} />
+      <meta name="robots" content={noIndex ? 'noindex, nofollow' : 'index, follow'} />
+      <link rel="canonical" href={canonicalUrl} />
 
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={pageDescription} />
-      <meta property="og:url" content={seoConfig.openGraph.url} />
+      <meta property="og:url" content={canonicalUrl} />
       <meta property="og:site_name" content={seoConfig.openGraph.siteName} />
       <meta property="og:type" content={seoConfig.openGraph.type} />
       <meta property="og:locale" content={seoConfig.openGraph.locale} />
