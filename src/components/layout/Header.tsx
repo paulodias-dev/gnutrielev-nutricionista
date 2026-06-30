@@ -6,6 +6,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Calendar, ArrowRight } from 'lucide-react';
 import { NAV_ITEMS, NUTRI_PROFILE } from '../../utils/data';
+import { logoGnutrielevHorizontal } from '../../assets/logoGnutrielev';
 import { Button } from '../ui/Button';
 import { motion, AnimatePresence } from 'motion/react';
 import { scrollToSection } from '../../utils/navigation';
@@ -80,24 +81,25 @@ export const Header: React.FC = () => {
       id="main-header"
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
         scrolled || isOpen
-          ? 'bg-white/90 backdrop-blur-xl border-b border-slate-200/40 shadow-sm py-4'
-          : 'bg-transparent border-b border-transparent py-5'
+          ? 'bg-white/90 backdrop-blur-xl border-b border-slate-200/40 shadow-sm py-3'
+          : 'bg-transparent border-b border-transparent py-4'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between gap-6">
         <a
           href="#inicio"
           onClick={(e) => handleLinkClick(e, 'inicio')}
-          className="flex items-center gap-2 group select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 rounded-lg"
+          className="flex items-center select-none shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 rounded-lg"
           id="logo-link"
           aria-label="Ir para o início da página GNutriElev"
         >
-          <div className="w-8.5 h-8.5 rounded-lg bg-emerald-600 flex items-center justify-center shadow-md shadow-emerald-600/20 group-hover:bg-emerald-500 transition-colors">
-            <span className="text-white text-base font-extrabold tracking-tight">ge</span>
-          </div>
-          <span className="text-xl font-bold font-display text-slate-900 tracking-tight">
-            gnutri<span className="text-emerald-600">elev</span>
-          </span>
+          <img
+            src={logoGnutrielevHorizontal}
+            alt="GNutriElev - Nutrição e Bem-Estar"
+            width="760"
+            height="223"
+            className="h-11 sm:h-12 w-auto max-w-[185px] sm:max-w-[210px] object-contain"
+          />
         </a>
 
         <nav className="hidden md:flex items-center gap-7" id="desktop-nav" aria-label="Navegação principal">
