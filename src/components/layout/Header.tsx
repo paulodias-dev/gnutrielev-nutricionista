@@ -15,12 +15,10 @@ export const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('inicio');
 
-  // Listen to scroll to apply heavier glass shadow
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      // Simple active link detection
       const sections = NAV_ITEMS.map(i => i.href.replace('#', ''));
       const scrollPosition = window.scrollY + 120;
 
@@ -37,7 +35,7 @@ export const Header: React.FC = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
@@ -47,7 +45,7 @@ export const Header: React.FC = () => {
     const scrollFromHash = () => {
       const hashTarget = window.location.hash.replace('#', '');
       if (hashTarget) {
-        scrollToSection(hashTarget);
+        scrollToSection(hashTarget, { updateHash: false });
       }
     };
 
@@ -58,6 +56,17 @@ export const Header: React.FC = () => {
       window.cancelAnimationFrame(rafId);
       window.removeEventListener('hashchange', scrollFromHash);
     };
+  }, []);
+
+  useEffect(() => {
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
   }, []);
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
@@ -76,12 +85,12 @@ export const Header: React.FC = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo Container */}
         <a
           href="#inicio"
           onClick={(e) => handleLinkClick(e, 'inicio')}
-          className="flex items-center gap-2 group select-none"
+          className="flex items-center gap-2 group select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 rounded-lg"
           id="logo-link"
+          aria-label="Ir para o início da página GNutriElev"
         >
           <div className="w-8.5 h-8.5 rounded-lg bg-emerald-600 flex items-center justify-center shadow-md shadow-emerald-600/20 group-hover:bg-emerald-500 transition-colors">
             <span className="text-white text-base font-extrabold tracking-tight">ge</span>
@@ -91,18 +100,18 @@ export const Header: React.FC = () => {
           </span>
         </a>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-7" id="desktop-nav">
+        <nav className="hidden md:flex items-center gap-7" id="desktop-nav" aria-label="Navegação principal">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.id}
               href={item.href}
               onClick={(e) => handleLinkClick(e, item.href.replace('#', ''))}
-              className={`text-sm font-medium tracking-tight transition-colors relative py-1.5 ${
+              className={`text-sm font-medium tracking-tight transition-colors relative py-1.5 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 ${
                 activeSection === item.href.replace('#', '')
                   ? 'text-emerald-700 font-semibold'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
+              aria-current={activeSection === item.href.replace('#', '') ? 'page' : undefined}
             >
               {item.label}
               {activeSection === item.href.replace('#', '') && (
@@ -116,32 +125,34 @@ export const Header: React.FC = () => {
           ))}
         </nav>
 
-        {/* Action Button Desktop */}
         <div className="hidden md:block">
           <Button
             id="header-cta"
-            onClick={() => window.open(NUTRI_PROFILE.whatsappUrl, '_blank')}
+            href={NUTRI_PROFILE.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             variant="primary"
             size="sm"
             icon={Calendar}
+            aria-label="Consultar horários pelo WhatsApp"
           >
-            Agendar Consulta
+            Consultar Horários
           </Button>
         </div>
 
-        {/* Mobile Toggle Button */}
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-950 hover:bg-slate-100/50 transition-colors focus:outline-none"
-          aria-label="Toggle Menu"
+          className="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-950 hover:bg-slate-100/50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2"
+          aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
+          aria-expanded={isOpen}
+          aria-controls="mobile-drawer"
           id="mobile-menu-toggle"
         >
-          {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          {isOpen ? <X aria-hidden="true" className="w-5 h-5" /> : <Menu aria-hidden="true" className="w-5 h-5" />}
         </button>
       </div>
 
-      {/* Mobile Drawer Slide Navigation */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -152,32 +163,36 @@ export const Header: React.FC = () => {
             className="md:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200/50 absolute top-full left-0 right-0 overflow-hidden shadow-lg"
             id="mobile-drawer"
           >
-            <div className="px-6 py-6 flex flex-col gap-5">
+            <nav className="px-6 py-6 flex flex-col gap-5" aria-label="Navegação principal mobile">
               {NAV_ITEMS.map((item) => (
                 <a
                   key={item.id}
                   href={item.href}
                   onClick={(e) => handleLinkClick(e, item.href.replace('#', ''))}
-                  className={`text-base font-medium tracking-tight py-1 border-b border-slate-100/60 ${
+                  className={`text-base font-medium tracking-tight py-1 border-b border-slate-100/60 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 ${
                     activeSection === item.href.replace('#', '')
                       ? 'text-emerald-700 font-semibold pl-1.5 border-l-2 border-emerald-600 border-b-transparent'
                       : 'text-slate-600 hover:text-slate-900'
                   }`}
+                  aria-current={activeSection === item.href.replace('#', '') ? 'page' : undefined}
                 >
                   {item.label}
                 </a>
               ))}
               <Button
                 id="mobile-header-cta"
-                onClick={() => window.open(NUTRI_PROFILE.whatsappUrl, '_blank')}
+                href={NUTRI_PROFILE.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 variant="primary"
                 size="md"
                 icon={ArrowRight}
+                aria-label="Falar no WhatsApp para consultar atendimento nutricional"
                 className="w-full mt-2"
               >
-                Falar com a Nutricionista
+                Falar pelo WhatsApp
               </Button>
-            </div>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>
