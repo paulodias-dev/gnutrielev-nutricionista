@@ -7,12 +7,17 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { LucideIcon } from 'lucide-react';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+type NativeButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
+type NativeAnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement>;
+
+interface ButtonProps extends Omit<NativeButtonProps, 'children'>, Omit<NativeAnchorProps, 'children' | 'type'> {
+  children: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'glass' | 'danger';
   size?: 'sm' | 'md' | 'lg';
   icon?: LucideIcon;
   iconPosition?: 'left' | 'right';
   animate?: boolean;
+  href?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -23,10 +28,11 @@ export const Button: React.FC<ButtonProps> = ({
   iconPosition = 'right',
   animate = true,
   className = '',
+  href,
+  type = 'button',
   ...props
 }) => {
-  // Styles for Apple / macOS minimal design with Emerald health fresh accents
-  const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-300 focus:outline-none rounded-xl tracking-tight select-none cursor-pointer';
+  const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 rounded-xl tracking-tight select-none cursor-pointer';
   
   const variants = {
     primary: 'bg-emerald-600 text-white hover:bg-emerald-500 shadow-md shadow-emerald-900/10 hover:shadow-lg hover:shadow-emerald-900/20 active:scale-98 border border-emerald-600/10',
@@ -41,7 +47,7 @@ export const Button: React.FC<ButtonProps> = ({
     lg: 'px-8 py-4 text-base gap-2.5 rounded-2xl'
   };
 
-  const Component = animate ? motion.button : 'button';
+  const Component = href ? (animate ? motion.a : 'a') : (animate ? motion.button : 'button');
   const animationProps = animate
     ? {
         whileHover: { y: -2, scale: 1.01 },
@@ -51,15 +57,16 @@ export const Button: React.FC<ButtonProps> = ({
     : {};
 
   return (
-    // @ts-ignore (motion attributes conflict slightly with normal button typings in react 19, but work perfectly fine)
     <Component
       className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
+      href={href}
+      type={href ? undefined : type}
       {...animationProps}
       {...props}
     >
-      {Icon && iconPosition === 'left' && <Icon className="w-4 h-4 shrink-0" />}
+      {Icon && iconPosition === 'left' && <Icon aria-hidden="true" className="w-4 h-4 shrink-0" />}
       <span>{children}</span>
-      {Icon && iconPosition === 'right' && <Icon className="w-4 h-4 shrink-0" />}
+      {Icon && iconPosition === 'right' && <Icon aria-hidden="true" className="w-4 h-4 shrink-0" />}
     </Component>
   );
 };
