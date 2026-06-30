@@ -1,9 +1,36 @@
+Options -Indexes
 RewriteEngine On
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  Header always set X-Frame-Options "DENY"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+
+  <FilesMatch "\.(?:js|css|png|jpg|jpeg|gif|svg|webp|avif|ico|woff2?)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  <FilesMatch "\.(?:html)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json application/xml image/svg+xml
+</IfModule>
 
 # Serve arquivos/pastas existentes
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# SPA: qualquer rota vai pro index.html
-RewriteRule ^ index.html [L]
+# Rotas conhecidas da SPA
+RewriteRule ^$ index.html [L]
+RewriteRule ^(politica-de-privacidade|termos-de-uso|politica-de-cookies)/?$ index.html [L]
+
+# Rotas desconhecidas devem responder 404 em vez de soft 404 genérico
+RewriteRule . - [R=404,L]
