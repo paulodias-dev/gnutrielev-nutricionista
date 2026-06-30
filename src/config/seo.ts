@@ -1,13 +1,15 @@
 export const seoConfig = {
+  baseUrl: 'https://gnutrielev.com.br',
   siteName: 'GNutriElev',
-  title: 'Dra. Gislene Gomes | Nutricionista Clínica e Esportiva',
+  title: 'Nutricionista em Aracaju e Online | GNutriElev',
   description:
-    'Nutrição clínica e esportiva com plano alimentar personalizado para emagrecer, ganhar saúde e performance sem terrorismo nutricional.',
+    'Atendimento nutricional clínico e esportivo em Aracaju-SE e online, com plano alimentar individualizado conforme avaliação, rotina, exames e objetivos.',
   keywords: [
+    'nutricionista em Aracaju',
     'nutricionista online',
-    'nutricionista clínica',
-    'nutricionista esportiva',
-    'emagrecimento',
+    'nutricionista clínica em Aracaju',
+    'nutricionista esportiva em Aracaju',
+    'emagrecimento saudável',
     'reeducação alimentar',
     'plano alimentar personalizado',
     'saúde intestinal',
@@ -16,9 +18,9 @@ export const seoConfig = {
     'acompanhamento nutricional',
   ],
   openGraph: {
-    title: 'Dra. Gislene Gomes | Nutricionista Clínica e Esportiva',
+    title: 'Nutricionista em Aracaju e Online | GNutriElev',
     description:
-      'Nutrição clínica e esportiva com plano alimentar personalizado para emagrecer, ganhar saúde e performance sem terrorismo nutricional.',
+      'Atendimento nutricional clínico e esportivo em Aracaju-SE e online, com plano alimentar individualizado conforme avaliação individual.',
     url: 'https://gnutrielev.com.br',
     siteName: 'GNutriElev',
     type: 'website',
@@ -28,7 +30,7 @@ export const seoConfig = {
         url: 'https://gnutrielev.com.br/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Dra. Gislene Gomes - Nutricionista Clínica e Esportiva',
+        alt: 'GNutriElev - Nutricionista em Aracaju e atendimento online',
       },
     ],
   },
