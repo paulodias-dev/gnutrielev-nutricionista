@@ -7,10 +7,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { LucideIcon } from 'lucide-react';
 
-type NativeButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
-type NativeAnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement>;
-
-interface ButtonProps extends Omit<NativeButtonProps, 'children'>, Omit<NativeAnchorProps, 'children' | 'type'> {
+interface ButtonProps {
   children: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'glass' | 'danger';
   size?: 'sm' | 'md' | 'lg';
@@ -18,6 +15,15 @@ interface ButtonProps extends Omit<NativeButtonProps, 'children'>, Omit<NativeAn
   iconPosition?: 'left' | 'right';
   animate?: boolean;
   href?: string;
+  target?: string;
+  rel?: string;
+  id?: string;
+  title?: string;
+  type?: 'button' | 'submit' | 'reset';
+  className?: string;
+  disabled?: boolean;
+  'aria-label'?: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -30,6 +36,7 @@ export const Button: React.FC<ButtonProps> = ({
   className = '',
   href,
   type = 'button',
+  disabled = false,
   ...props
 }) => {
   const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 rounded-xl tracking-tight select-none cursor-pointer';
@@ -47,8 +54,10 @@ export const Button: React.FC<ButtonProps> = ({
     lg: 'px-8 py-4 text-base gap-2.5 rounded-2xl'
   };
 
+  const disabledStyles = disabled ? 'opacity-60 pointer-events-none' : '';
+  const classes = `${baseStyles} ${variants[variant]} ${sizes[size]} ${disabledStyles} ${className}`;
   const Component = href ? (animate ? motion.a : 'a') : (animate ? motion.button : 'button');
-  const animationProps = animate
+  const animationProps = animate && !disabled
     ? {
         whileHover: { y: -2, scale: 1.01 },
         whileTap: { scale: 0.98 },
@@ -58,9 +67,11 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <Component
-      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
+      className={classes}
       href={href}
       type={href ? undefined : type}
+      aria-disabled={href ? disabled : undefined}
+      disabled={href ? undefined : disabled}
       {...animationProps}
       {...props}
     >
