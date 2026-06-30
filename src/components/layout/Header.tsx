@@ -6,7 +6,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Calendar, ArrowRight } from 'lucide-react';
 import { NAV_ITEMS, NUTRI_PROFILE } from '../../utils/data';
-import { logoGnutrielevHorizontal } from '../../assets/logoGnutrielev';
 import { Button } from '../ui/Button';
 import { motion, AnimatePresence } from 'motion/react';
 import { scrollToSection } from '../../utils/navigation';
@@ -81,25 +80,35 @@ export const Header: React.FC = () => {
       id="main-header"
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
         scrolled || isOpen
-          ? 'bg-white/90 backdrop-blur-xl border-b border-slate-200/40 shadow-sm py-2'
-          : 'bg-transparent border-b border-transparent py-3'
+          ? 'bg-white/90 backdrop-blur-xl border-b border-slate-200/40 shadow-sm py-3'
+          : 'bg-transparent border-b border-transparent py-4'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between gap-6 min-h-[68px]">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between gap-6">
         <a
           href="#inicio"
           onClick={(e) => handleLinkClick(e, 'inicio')}
-          className="flex items-center select-none shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 rounded-lg"
+          className="flex items-center gap-3 select-none shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 rounded-xl"
           id="logo-link"
           aria-label="Ir para o início da página GNutriElev"
         >
           <img
-            src={logoGnutrielevHorizontal}
-            alt="GNutriElev - Nutrição e Bem-Estar"
-            width="760"
-            height="223"
-            className="h-[60px] sm:h-[66px] lg:h-[72px] w-auto max-w-[230px] sm:max-w-[255px] lg:max-w-[285px] object-contain drop-shadow-sm"
+            src="/favicon.svg"
+            alt=""
+            width="512"
+            height="512"
+            aria-hidden="true"
+            className="h-12 w-12 sm:h-13 sm:w-13 object-contain shrink-0 drop-shadow-sm"
           />
+
+          <span className="flex flex-col leading-none text-left">
+            <span className="text-[1.42rem] sm:text-[1.62rem] font-semibold tracking-tight text-[#5b247b]">
+              G <span className="font-bold">Nutri</span><span className="text-[#a855f7] font-semibold">Elev</span>
+            </span>
+            <span className="mt-1 hidden sm:block text-[0.56rem] font-bold tracking-[0.28em] uppercase text-[#5b247b]/75">
+              Nutrição e Bem-Estar
+            </span>
+          </span>
         </a>
 
         <nav className="hidden md:flex items-center gap-5 lg:gap-7" id="desktop-nav" aria-label="Navegação principal">
