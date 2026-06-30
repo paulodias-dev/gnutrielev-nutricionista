@@ -19,18 +19,27 @@ const rootContainer = (markup: string) => `<div id="root">${markup}</div>`;
 
 const replaceRoot = (html: string, markup: string) => html.replace('<div id="root"></div>', rootContainer(markup));
 
+const replaceTag = (html: string, pattern: RegExp, replacement: string) => {
+  if (!pattern.test(html)) {
+    return html;
+  }
+
+  return html.replace(pattern, replacement);
+};
+
 const updateMeta = (html: string, title: string, description: string, canonicalPath: string) => {
   const canonicalUrl = `${seoConfig.baseUrl}${canonicalPath === '/' ? '' : canonicalPath}`;
 
-  return html
-    .replace(/<title>.*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
-    .replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/>/, `<meta name="description" content="${escapeHtml(description)}" />`)
-    .replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/>/, `<link rel="canonical" href="${canonicalUrl}" />`)
-    .replace(/<meta\s+property="og:title"\s+content="[^"]*"\s*\/>/, `<meta property="og:title" content="${escapeHtml(title)}" />`)
-    .replace(/<meta\s+property="og:description"\s+content="[^"]*"\s*\/>/, `<meta property="og:description" content="${escapeHtml(description)}" />`)
-    .replace(/<meta\s+property="og:url"\s+content="[^"]*"\s*\/>/, `<meta property="og:url" content="${canonicalUrl}" />`)
-    .replace(/<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/>/, `<meta name="twitter:title" content="${escapeHtml(title)}" />`)
-    .replace(/<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/>/, `<meta name="twitter:description" content="${escapeHtml(description)}" />`);
+  return [
+    (value: string) => value.replace(/<title>.*?<\/title>/i, `<title>${escapeHtml(title)}</title>`),
+    (value: string) => replaceTag(value, /<meta\b(?=[^>]*\bname=["']description["'])[^>]*>/i, `<meta name="description" content="${escapeHtml(description)}" />`),
+    (value: string) => replaceTag(value, /<link\b(?=[^>]*\brel=["']canonical["'])[^>]*>/i, `<link rel="canonical" href="${canonicalUrl}" />`),
+    (value: string) => replaceTag(value, /<meta\b(?=[^>]*\bproperty=["']og:title["'])[^>]*>/i, `<meta property="og:title" content="${escapeHtml(title)}" />`),
+    (value: string) => replaceTag(value, /<meta\b(?=[^>]*\bproperty=["']og:description["'])[^>]*>/i, `<meta property="og:description" content="${escapeHtml(description)}" />`),
+    (value: string) => replaceTag(value, /<meta\b(?=[^>]*\bproperty=["']og:url["'])[^>]*>/i, `<meta property="og:url" content="${canonicalUrl}" />`),
+    (value: string) => replaceTag(value, /<meta\b(?=[^>]*\bname=["']twitter:title["'])[^>]*>/i, `<meta name="twitter:title" content="${escapeHtml(title)}" />`),
+    (value: string) => replaceTag(value, /<meta\b(?=[^>]*\bname=["']twitter:description["'])[^>]*>/i, `<meta name="twitter:description" content="${escapeHtml(description)}" />`),
+  ].reduce((value, transform) => transform(value), html);
 };
 
 const homeMarkup = `
