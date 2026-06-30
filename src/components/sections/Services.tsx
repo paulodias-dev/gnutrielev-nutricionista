@@ -20,22 +20,22 @@ const iconMap = {
 
 export const Services: React.FC = () => {
   const getWhatsAppWithSpecialty = (title: string) => {
-    const textMsg = `Olá, Dra. Gislene! Visitei o site gnutrielev.com.br e gostaria de entender melhor como funciona o acompanhamento focado em ${title}. Qual a disponibilidade de horários?`;
-    const phone = (NUTRI_PROFILE as any).whatsappPhone || '5579981425786';
-    return `https://wa.me/${phone}?text=${encodeURIComponent(textMsg)}`;
+    const textMsg = `Olá, Gislene! Visitei o site gnutrielev.com.br e gostaria de entender melhor o atendimento nutricional relacionado a ${title}. Qual a disponibilidade de horários?`;
+    return `https://wa.me/${NUTRI_PROFILE.whatsappPhone}?text=${encodeURIComponent(textMsg)}`;
   };
 
   return (
     <Section
       id="especialidades"
       tag="Especialidades"
-      title="Programas Nutricionais de Alta Performance"
-      subtitle="Estratégias científicas sob medida criadas do zero para o seu metabolismo, preferências e objetivos específicos."
+      title="Áreas de Atendimento Nutricional"
+      subtitle="Estratégias alimentares individualizadas conforme avaliação clínica, rotina, preferências, exames e objetivos."
       bgType="light"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {SPECIALTIES.map((spec) => {
           const IconComponent = iconMap[spec.iconName] || Apple;
+          const specialtyUrl = getWhatsAppWithSpecialty(spec.title);
           
           return (
             <Card
@@ -44,16 +44,17 @@ export const Services: React.FC = () => {
               hoverEffect={true}
               className="flex flex-col h-full text-left"
             >
-              <div
-                className="p-6 md:p-8 flex flex-col justify-between h-full cursor-pointer group"
-                onClick={() => window.open(getWhatsAppWithSpecialty(spec.title), '_blank')}
-                title="Clique para agendar esta especialização via WhatsApp"
+              <a
+                className="p-6 md:p-8 flex flex-col justify-between h-full cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 rounded-2xl"
+                href={specialtyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Consultar atendimento nutricional sobre ${spec.title} pelo WhatsApp`}
               >
                 <div>
-                  {/* Top Row: Icon container & Focus pill */}
                   <div className="flex items-center justify-between gap-2.5 mb-6">
                     <div className="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-700 transition-colors group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-600 shrink-0 shadow-sm">
-                      <IconComponent className="w-5.5 h-5.5" />
+                      <IconComponent aria-hidden="true" className="w-5.5 h-5.5" />
                     </div>
                     
                     <span className="text-[10px] font-bold tracking-wider text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full uppercase">
@@ -61,34 +62,29 @@ export const Services: React.FC = () => {
                     </span>
                   </div>
 
-                  {/* Specialty Title */}
                   <h3 className="text-lg font-bold font-display text-slate-900 leading-tight group-hover:text-emerald-700 transition-colors">
                     {spec.title}
                   </h3>
 
-                  {/* Summary description */}
                   <p className="text-xs text-slate-500 mt-3 leading-relaxed mb-6">
                     {spec.shortDescription}
                   </p>
 
-                  {/* Bullet specifics details */}
                   <ul className="space-y-2.5 border-t border-slate-100 pt-5 mb-6">
                     {spec.detailedPoints.map((point, pointIdx) => (
                       <li key={pointIdx} className="flex items-start gap-2 text-xs text-slate-600 leading-snug">
-                        <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                        <Check aria-hidden="true" className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
                         <span>{point}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* Card footer redirect trigger */}
                 <div className="mt-auto pt-2 flex items-center gap-1.5 text-xs font-semibold text-emerald-700 group-hover:emerald-500 transition-colors">
-                  <span>Agendar planejamento para {spec.title.split(' ')[0]}</span>
-                  <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
+                  <span>Consultar atendimento sobre {spec.title}</span>
+                  <ArrowRight aria-hidden="true" className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
                 </div>
-
-              </div>
+              </a>
             </Card>
           );
         })}
