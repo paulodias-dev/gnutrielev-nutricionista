@@ -35,8 +35,11 @@ export const Button: React.FC<ButtonProps> = ({
   animate = true,
   className = '',
   href,
+  target,
+  rel,
   type = 'button',
   disabled = false,
+  onClick,
   ...props
 }) => {
   const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 rounded-xl tracking-tight select-none cursor-pointer';
@@ -56,7 +59,6 @@ export const Button: React.FC<ButtonProps> = ({
 
   const disabledStyles = disabled ? 'opacity-60 pointer-events-none' : '';
   const classes = `${baseStyles} ${variants[variant]} ${sizes[size]} ${disabledStyles} ${className}`;
-  const Component = href ? (animate ? motion.a : 'a') : (animate ? motion.button : 'button');
   const animationProps = animate && !disabled
     ? {
         whileHover: { y: -2, scale: 1.01 },
@@ -65,19 +67,45 @@ export const Button: React.FC<ButtonProps> = ({
       }
     : {};
 
-  return (
-    <Component
-      className={classes}
-      href={href}
-      type={href ? undefined : type}
-      aria-disabled={href ? disabled : undefined}
-      disabled={href ? undefined : disabled}
-      {...animationProps}
-      {...props}
-    >
+  const content = (
+    <>
       {Icon && iconPosition === 'left' && <Icon aria-hidden="true" className="w-4 h-4 shrink-0" />}
       <span>{children}</span>
       {Icon && iconPosition === 'right' && <Icon aria-hidden="true" className="w-4 h-4 shrink-0" />}
-    </Component>
+    </>
+  );
+
+  if (href) {
+    const AnchorComponent = animate ? motion.a : 'a';
+
+    return (
+      <AnchorComponent
+        className={classes}
+        href={href}
+        target={target}
+        rel={rel}
+        aria-disabled={disabled}
+        onClick={onClick as React.MouseEventHandler<HTMLAnchorElement>}
+        {...animationProps}
+        {...props}
+      >
+        {content}
+      </AnchorComponent>
+    );
+  }
+
+  const ButtonComponent = animate ? motion.button : 'button';
+
+  return (
+    <ButtonComponent
+      className={classes}
+      type={type}
+      disabled={disabled}
+      onClick={onClick as React.MouseEventHandler<HTMLButtonElement>}
+      {...animationProps}
+      {...props}
+    >
+      {content}
+    </ButtonComponent>
   );
 };
