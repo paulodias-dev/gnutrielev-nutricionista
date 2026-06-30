@@ -28,20 +28,22 @@ export interface Specialty {
 
 export interface Testimonial {
   id: string;
-  patientName: string;
-  age: number;
-  goal: string;
-  result: string;
+  patientLabel: string;
+  context: string;
   quote: string;
   period: string;
   rating: number;
-  avatarUrl: string;
 }
 
 export interface FAQItem {
   id: string;
   question: string;
   answer: string;
+}
+
+export interface LegalLink {
+  label: string;
+  href: string;
 }
 
 export const NAV_ITEMS: NavItem[] = [
@@ -52,49 +54,66 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Dúvidas Frequentes', href: '#faq', id: 'nav-faq' },
 ];
 
+export const LEGAL_LINKS: LegalLink[] = [
+  { label: 'Política de Privacidade', href: '/politica-de-privacidade' },
+  { label: 'Termos de Uso', href: '/termos-de-uso' },
+  { label: 'Política de Cookies', href: '/politica-de-cookies' },
+];
+
 export const NUTRI_PROFILE = {
   fullName: 'Gislene Gomes de Mendonça',
-  shortName: 'Dra. Gislene Gomes',
+  shortName: 'Gislene Gomes',
+  displayTitle: 'Nutricionista Clínica e Esportiva',
   crn: 'CRN-3 84.215/P',
-  graduation: 'Graduada em Nutrição pela Universidade do Sul de São Paulo (USP / UNIFESP-Ref)',
-  postGraduation: 'Especialização em Nutrição Esportiva e Humana e Prescrição de Fitoterápicos',
+  graduation: 'Graduação em Nutrição e formação complementar em nutrição clínica, esportiva e prescrição nutricional individualizada.',
+  postGraduation: 'Atualização contínua em nutrição clínica, esportiva, comportamento alimentar e fitoterapia aplicada quando tecnicamente indicada.',
   aboutTitle: 'Nutrição Integrativa com Base em Evidências Científicas',
-  aboutSubtitle: 'Parcele o caminho para o seu bem-estar com planejamento prático, comendo o que você gosta, sem terrorismos nutricional.',
+  aboutSubtitle: 'Construa uma rotina alimentar possível, individualizada e compatível com seus objetivos, sem promessas irreais ou restrições extremas.',
   whatsappPhone: '5579981425786',
-  whatsappUrl: 'https://wa.me/5579981425786?text=Ol%C3%A1%2C%20Dra.%20Gislene!%20Gostaria%20de%20agendar%20uma%20consulta%20e%20saber%20mais%20detalhes%20sobre%20o%20acompanhamento%20nutricional.',
-  address: 'Atendimento On-line e Presencial (Av. General Euclides Figueiredo, 425 - Japãozinho, Aracaju - SE)',
+  whatsappUrl: 'https://wa.me/5579981425786?text=Ol%C3%A1%2C%20Gislene!%20Visitei%20o%20site%20gnutrielev.com.br%20e%20gostaria%20de%20consultar%20a%20disponibilidade%20para%20atendimento%20nutricional.',
+  address: 'Atendimento on-line e presencial — Av. General Euclides Figueiredo, 425 - Japãozinho, Aracaju - SE',
+  addressStreet: 'Av. General Euclides Figueiredo, 425',
+  addressDistrict: 'Japãozinho',
+  city: 'Aracaju',
+  state: 'SE',
+  country: 'BR',
   email: 'contato@gnutrielev.com.br',
+  privacyEmail: 'contato@gnutrielev.com.br',
   instagram: '@g_nutrielev',
+  businessName: 'GNutriElev Nutrição',
+  businessStatus: 'Dados empresariais em validação',
+  serviceArea: 'Aracaju-SE e atendimento on-line para pacientes elegíveis',
+  consultationDisclaimer: 'Acompanhamento nutricional depende de avaliação individual. Resultados variam conforme histórico, exames, adesão e condições clínicas.',
 };
 
 export const CLINIC_METRICS: Metric[] = [
   {
-    value: '100%+',
-    label: 'Acompanhamentos Individualizados',
-    description: 'Nenhum plano é igual a outro. Criado do zero com base na sua rotina.'
+    value: 'Plano individual',
+    label: 'Acompanhamento personalizado',
+    description: 'Condutas definidas a partir da anamnese, rotina, preferências, objetivos e contexto clínico de cada paciente.'
   },
   {
-    value: 'Sem Neuras',
-    label: 'Abordagem Humanizada',
-    description: 'Sem proibições drásticas. Inclua o chocolate ou o pão nos macros.'
+    value: 'Sem extremos',
+    label: 'Abordagem humanizada',
+    description: 'Educação alimentar com flexibilidade, organização e estratégias sustentáveis para o dia a dia.'
   },
   {
-    value: 'CRN Ativo',
-    label: 'Segurança e Ciência',
-    description: 'Formação rigorosa e registro profissional atualizado.'
+    value: 'CRN informado',
+    label: 'Responsabilidade técnica',
+    description: 'Identificação profissional visível e atendimento orientado por avaliação individual.'
   }
 ];
 
 export const SPECIALTIES: Specialty[] = [
   {
     id: 'emagrecimento',
-    title: 'Emagrecimento Definitivo',
+    title: 'Emagrecimento Saudável',
     iconName: 'Apple',
-    shortDescription: 'Perca gordura de forma saudável e sustentável, sem passar fome ou aderir a dietas da moda que quebram seu metabolismo.',
+    shortDescription: 'Estratégias para redução de gordura e melhora de hábitos alimentares de forma gradual, segura e compatível com a rotina.',
     detailedPoints: [
-      'Cálculo preciso do déficit calórico ideal para o seu perfil.',
-      'Estratégias para controle de ansiedade e fome por doces.',
-      'Plano alimentar acessível com alimentos do seu dia a dia.'
+      'Déficit calórico avaliado conforme histórico, rotina e sinais clínicos.',
+      'Estratégias para fome, saciedade, ansiedade alimentar e organização das refeições.',
+      'Plano alimentar com alimentos acessíveis e adaptações possíveis para o cotidiano.'
     ],
     focus: 'Saúde & Estética'
   },
@@ -102,11 +121,11 @@ export const SPECIALTIES: Specialty[] = [
     id: 'hipertrofia',
     title: 'Hipertrofia & Desempenho',
     iconName: 'Flame',
-    shortDescription: 'Ganho de massa muscular magra, aumento de força física e melhor rendimento nos treinos (musculação, corrida, funcional).',
+    shortDescription: 'Ajuste alimentar para ganho de massa muscular, recuperação e rendimento, respeitando treino, rotina e avaliação individual.',
     detailedPoints: [
-      'Ajuste inteligente de macronutrientes (proteínas, carboidratos e gorduras).',
-      'Protocolos de suplementação eficiente (Creatina, Whey, Cafeína, etc.).',
-      'Sincronização da alimentação com os horários de treino (Pré e pós-treino).'
+      'Distribuição de macronutrientes conforme objetivo, composição corporal e treino.',
+      'Suplementação discutida apenas quando houver indicação e benefício prático.',
+      'Organização de refeições em torno dos horários de treino e recuperação.'
     ],
     focus: 'Performance Esportiva'
   },
@@ -114,11 +133,11 @@ export const SPECIALTIES: Specialty[] = [
     id: 'reeducacao',
     title: 'Reeducação Alimentar',
     iconName: 'Utensils',
-    shortDescription: 'Faça as pazes com a comida. Aprenda a equilibrar jantares fora, vida social e festas com uma rotina que gera resultados.',
+    shortDescription: 'Construção de autonomia alimentar, melhora de escolhas e rotina possível, sem culpa ou terrorismo nutricional.',
     detailedPoints: [
-      'Análise comportamental para tratar gatilhos de compulsão ou gula.',
-      'Identificação de mitos alimentares e terrorismo nutricional.',
-      'Desenvolvimento de autonomia alimentar completa.'
+      'Mapeamento de gatilhos alimentares e dificuldades de adesão.',
+      'Orientação para escolhas em casa, trabalho, restaurantes e eventos sociais.',
+      'Metas progressivas para tornar o processo mais sustentável.'
     ],
     focus: 'Estilo de Vida'
   },
@@ -126,11 +145,11 @@ export const SPECIALTIES: Specialty[] = [
     id: 'saude-intestinal',
     title: 'Saúde Gastrointestinal',
     iconName: 'Activity',
-    shortDescription: 'Tratamento dietoterápico para constipação (intestino preso), gases, distensão abdominal, refluxo e melhora da microbiota.',
+    shortDescription: 'Orientação nutricional para queixas como constipação, gases, distensão abdominal e refluxo, sempre conforme avaliação.',
     detailedPoints: [
-      'Protocolo FODMAPs controlado quando necessário.',
-      'Prebióticos e probióticos individuais sugeridos sob demanda.',
-      'Adequação de fibras estruturada com volume de hidratação customizado.'
+      'Ajuste gradual de fibras, hidratação e padrão alimentar.',
+      'Estratégias como FODMAPs apenas quando tecnicamente pertinentes.',
+      'Encaminhamento ou integração com outros profissionais quando necessário.'
     ],
     focus: 'Qualidade de Vida'
   },
@@ -138,23 +157,23 @@ export const SPECIALTIES: Specialty[] = [
     id: 'estilo-vida',
     title: 'Nutrição para Mulheres',
     iconName: 'Sparkles',
-    shortDescription: 'Foco na regulação hormonal feminina, tratamento dietético para SOP, sintomas de TPM e melhora da pele, unhas e cabelos.',
+    shortDescription: 'Acompanhamento alimentar para demandas femininas, composição corporal, rotina, sintomas e objetivos individuais.',
     detailedPoints: [
-      'Ajuste de minerais críticos (Zinco, Ferro, Magnésio) e vitaminas vitais.',
-      'Suporte para ciclo menstrual equilibrado sem oscilações drásticas.',
-      'Estratégias anti-inflamatórias naturais na rotina diária.'
+      'Avaliação de ingestão, exames, rotina, ciclo e sinais clínicos relevantes.',
+      'Estratégias alimentares para energia, saciedade e qualidade da dieta.',
+      'Condutas personalizadas sem prometer regulação hormonal ou cura.'
     ],
-    focus: 'Equilíbrio Hormonal'
+    focus: 'Rotina Feminina'
   },
   {
     id: 'foco-mental',
-    title: 'Nutrição Mental & Energia',
+    title: 'Energia & Rotina',
     iconName: 'Brain',
-    shortDescription: 'Melhore seus níveis diários de clareza mental, energia, foco intelectual no trabalho e qualidade do sono através de nutrientes sinérgicos.',
+    shortDescription: 'Organização alimentar para melhorar consistência, energia percebida e qualidade da rotina, considerando sono, trabalho e hábitos.',
     detailedPoints: [
-      'Alimentos ricos em precursores de dopamina e serotonina.',
-      'Configurações de café e fitoterápicos de alta estabilidade.',
-      'Mitigação da fadiga mental crônica do estilo de vida corporativo.'
+      'Análise de horários, hidratação, qualidade das refeições e pausas alimentares.',
+      'Estratégias práticas para dias corridos, viagens e rotina profissional.',
+      'Discussão responsável sobre café, suplementos e fitoterápicos quando aplicável.'
     ],
     focus: 'Performance no Dia a Dia'
   }
@@ -163,36 +182,27 @@ export const SPECIALTIES: Specialty[] = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 'test-1',
-    patientName: 'Mariana Silveira',
-    age: 28,
-    goal: 'Combater a SOP e emagrecer',
-    result: '-8kg em 3 meses com exames perfeitamente regulados',
-    quote: 'A Dra. Gislene mudou minha relação com a comida. Eu vinha de dietas de 800kcal onde passava mal. Com ela, comi arroz, feijão, pão brioche e meu resultado foi mil vezes melhor. Indico de olhos fechados!',
-    period: 'Paciente há 4 meses',
+    patientLabel: 'Paciente M.',
+    context: 'Reeducação alimentar',
+    quote: 'O acompanhamento me ajudou a entender melhor minhas escolhas e a montar refeições possíveis para minha rotina, sem a sensação de estar em uma dieta impossível.',
+    period: 'Relato autorizado e anonimizado',
     rating: 5,
-    avatarUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200&h=200'
   },
   {
     id: 'test-2',
-    patientName: 'Rodrigo Fontes',
-    age: 34,
-    goal: 'Hipertrofia e melhora no treino de corrida',
-    result: '+4kg de massa muscular e redução da fadiga',
-    quote: 'Por trabalhar muito, eu achava impossível cozinhar e seguir dieta. Ela adaptou tudo para marmitas práticas que compro no mercado e ajustou a suplementação. O resultado no espelho e na minha energia foi absurdo.',
-    period: 'Paciente há 2 meses',
+    patientLabel: 'Paciente R.',
+    context: 'Rotina e desempenho',
+    quote: 'Eu tinha dificuldade de manter constância por causa do trabalho. Com ajustes simples, consegui organizar melhor compras, refeições e horários.',
+    period: 'Relato autorizado e anonimizado',
     rating: 5,
-    avatarUrl: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200&h=200'
   },
   {
     id: 'test-3',
-    patientName: 'Letícia Albuquerque',
-    age: 31,
-    goal: 'Fim do inchaço e dor de estômago crónica',
-    result: 'Intestino 100% regulado e saúde recuperada',
-    quote: 'Fui a médicos por anos para resolver gases e refluxo e me davam omeprazol. Com as mudanças simples de fibras, limitação temporária de alguns FODMAPs e hidratação da Dra., eu melhorei em duas semanas!',
-    period: 'Paciente há 3 meses',
+    patientLabel: 'Paciente L.',
+    context: 'Saúde gastrointestinal',
+    quote: 'A consulta foi cuidadosa, com explicações claras e mudanças graduais. Senti mais segurança para observar meu corpo e ajustar minha alimentação.',
+    period: 'Relato autorizado e anonimizado',
     rating: 5,
-    avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200&h=200'
   }
 ];
 
@@ -200,31 +210,31 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     id: 'faq-1',
     question: 'Como funciona a consulta online?',
-    answer: 'A consulta online é feita via chamada de vídeo criptografada de alta definição (Google Meet). Antes da consulta, você preenche um questionário pré-consulta detalhado. Durante a chamada, fazemos a anamnese clínica completa, avaliamos sua rotina de sono, treinos, preferências, medicamentos e montamos o plano juntos na tela, garantindo que tudo caiba na sua realidade comercial ou caseira.'
+    answer: 'A consulta online é realizada por chamada de vídeo, mediante confirmação de disponibilidade e envio das orientações prévias. Antes do atendimento, poderão ser solicitadas informações sobre rotina, preferências, histórico de saúde, exames, medicamentos e objetivos, sempre para avaliação nutricional individual.'
   },
   {
     id: 'faq-2',
     question: 'Como é feita a avaliação física se a consulta for online?',
-    answer: 'Para o acompanhamento online, utilizamos o método de Fotos Padronizadas de Evolução acompanhadas das Principais Circunferências Corporais (ensinamos você a medir passo a passo com uma fita métrica simples). Este método é extremamente fidedigno à perda de gordura e ganho de massa, muitas vezes sendo mais visual e prático para o paciente do que o compasso de dobras cutâneas.'
+    answer: 'No atendimento online, a avaliação pode incluir relato de rotina, medidas corporais autorreferidas, fotos padronizadas quando pertinentes e outros dados enviados pelo paciente. A indicação de cada recurso depende do objetivo, da segurança e da adequação ao caso.'
   },
   {
     id: 'faq-3',
     question: 'Você aceita plano de saúde?',
-    answer: 'Atendemos de forma particular, mas emitimos Recibo Técnico Completo e Nota Fiscal Eletrônica com todos os dados profissionais necessários (CRN ativo, código da consulta e CID de acompanhamento) para você solicitar o reembolso integral ou parcial no seu plano de saúde (como Bradesco, SulAmérica, Amil, Care Plus, etc.). Nós te entregamos o material mastigado.'
+    answer: 'O atendimento é particular. Quando aplicável, podem ser emitidos recibo e/ou nota fiscal com os dados profissionais cabíveis. A possibilidade de reembolso depende exclusivamente das regras da operadora e do contrato do paciente.'
   },
   {
     id: 'faq-4',
     question: 'Vou receber um cardápio pronto na hora?',
-    answer: 'O cardápio é desenhado junto com você durante o atendimento. Nós discutimos substituições ao vivo, combinamos as porções e analisamos o que você compra normalmente. O arquivo PDF final higienizado e a lista de compras personalizada são entregues em até 24 a 48 horas úteis diretamente no seu WhatsApp e e-mail.'
+    answer: 'O plano alimentar é construído conforme a avaliação individual. Em alguns casos, as orientações iniciais são alinhadas durante a consulta e o material final é enviado posteriormente por WhatsApp ou e-mail, conforme combinado no atendimento.'
   },
   {
     id: 'faq-5',
     question: 'Preciso gastar muito com alimentos caros e suplementos importados?',
-    answer: 'Definitivamente não. A base da sua dieta de sucesso comercial será o arroz, feijão, ovos, carnes vermelhas magras ou brancas, frutas da estação, pão de fôrma comum, leite, queijo e vegetais. Suplementos são recomendados somente quando necessários pela clínica ou praticidade, utilizando marcas nacionais de altíssimo custo-benefício.'
+    answer: 'Não necessariamente. A prioridade é adequar a alimentação à sua realidade, orçamento, rotina e preferências. Suplementos só devem ser considerados quando houver indicação, praticidade ou benefício compatível com o caso.'
   },
   {
     id: 'faq-6',
     question: 'O plano nutricional inclui suporte pós-consulta?',
-    answer: 'Sim, esse é o nosso maior diferencial de alta performance. Você não fica desamparado após um atendimento. Nós oferecemos suporte contínuo via WhatsApp diretamente com a Dra. Gislene durante 30 dias úteis para tirar dúvidas de substituição de alimentos, compras de última hora ou adaptações.'
+    answer: 'O formato de suporte é informado antes da contratação e pode variar conforme o tipo de acompanhamento. Quando contratado, o suporte serve para dúvidas de execução, substituições e ajustes combinados, sem substituir nova avaliação quando necessário.'
   }
 ];
