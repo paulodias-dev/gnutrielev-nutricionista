@@ -1,8 +1,24 @@
-<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="512" height="512" rx="124" fill="#3b0764"/>
-  <circle cx="256" cy="256" r="172" stroke="#c084fc" stroke-width="22" stroke-linecap="round" stroke-dasharray="22 24" opacity="0.7"/>
-  <path d="M365 158C310 166 275 204 260 267C289 222 326 203 371 209C374 191 372 174 365 158Z" fill="#d8b4fe"/>
-  <path d="M147 160C201 169 237 205 252 267C222 222 186 204 141 210C138 191 140 174 147 160Z" fill="#d8b4fe"/>
-  <path d="M157 321C204 366 309 368 358 321" stroke="#c084fc" stroke-width="22" stroke-linecap="round"/>
-  <circle cx="256" cy="146" r="34" fill="#a855f7"/>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GNutriElev">
+  <rect width="512" height="512" rx="112" fill="#fbf8ff"/>
+
+  <!-- Dotted outer circle from the approved logo symbol -->
+  <circle cx="256" cy="256" r="182" stroke="#b78ac9" stroke-width="16" stroke-linecap="round" stroke-dasharray="2 26"/>
+
+  <!-- Stylized G ring -->
+  <path d="M392 171C359 119 301 88 236 94C145 102 76 180 83 271C90 363 168 431 260 424C323 419 377 380 402 326" stroke="#5b247b" stroke-width="38" stroke-linecap="round"/>
+  <path d="M301 304H410" stroke="#5b247b" stroke-width="38" stroke-linecap="round"/>
+  <path d="M409 304C409 344 387 381 352 401" stroke="#5b247b" stroke-width="38" stroke-linecap="round"/>
+
+  <!-- Human head -->
+  <circle cx="256" cy="169" r="36" fill="#8c3fb0"/>
+
+  <!-- Leaves / wellness figure -->
+  <path d="M246 314C225 234 177 202 128 198C126 251 162 301 246 314Z" fill="#cbadd8"/>
+  <path d="M266 314C287 234 335 202 384 198C386 251 350 301 266 314Z" fill="#cbadd8"/>
+  <path d="M257 330C255 273 255 231 255 206" stroke="#5b247b" stroke-width="12" stroke-linecap="round" opacity="0.38"/>
+  <path d="M170 226C202 247 226 277 246 314" stroke="#fbf8ff" stroke-width="10" stroke-linecap="round" opacity="0.9"/>
+  <path d="M342 226C310 247 286 277 266 314" stroke="#fbf8ff" stroke-width="10" stroke-linecap="round" opacity="0.9"/>
+
+  <!-- Base leaf smile -->
+  <path d="M155 350C207 397 305 397 357 350" stroke="#b78ac9" stroke-width="22" stroke-linecap="round"/>
 </svg>
