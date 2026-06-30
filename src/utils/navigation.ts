@@ -4,11 +4,25 @@ interface ScrollOptions {
   updateHash?: boolean;
 }
 
+const allowedSections = new Set(['inicio', 'sobre', 'especialidades', 'depoimentos', 'faq']);
+
+const goToHomeSection = (targetId: string) => {
+  if (!allowedSections.has(targetId)) {
+    return;
+  }
+
+  const safeHash = encodeURIComponent(targetId);
+  window.location.assign(`/#${safeHash}`);
+};
+
 export const scrollToSection = (targetId: string, options: ScrollOptions = {}) => {
   const { updateHash = true } = options;
   const targetElement = document.getElementById(targetId);
 
   if (!targetElement) {
+    if (updateHash) {
+      goToHomeSection(targetId);
+    }
     return false;
   }
 
@@ -31,6 +45,11 @@ export const scrollToSection = (targetId: string, options: ScrollOptions = {}) =
 };
 
 export const scrollToTop = () => {
+  if (window.location.pathname !== '/') {
+    goToHomeSection('inicio');
+    return;
+  }
+
   window.scrollTo({
     top: 0,
     behavior: 'smooth',
