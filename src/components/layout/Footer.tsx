@@ -6,6 +6,7 @@
 import React from 'react';
 import { Mail, Instagram, MapPin, Shield, CheckCircle2, Phone } from 'lucide-react';
 import { LEGAL_LINKS, NAV_ITEMS, NUTRI_PROFILE } from '../../utils/data';
+import { logoGnutrielevHorizontal } from '../../assets/logoGnutrielev';
 import { scrollToSection, scrollToTop } from '../../utils/navigation';
 
 export const Footer: React.FC = () => {
@@ -27,16 +28,17 @@ export const Footer: React.FC = () => {
             <a
               href="#inicio"
               onClick={handleLogoClick}
-              className="flex items-center gap-2 select-none self-start focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded-lg"
+              className="inline-flex select-none self-start rounded-2xl bg-white px-4 py-3 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
               id="footer-logo"
               aria-label="Voltar ao início da GNutriElev"
             >
-              <div className="w-8.5 h-8.5 rounded-lg bg-emerald-600 flex items-center justify-center">
-                <span className="text-white text-base font-extrabold tracking-tight">ge</span>
-              </div>
-              <span className="text-xl font-bold font-display text-white tracking-tight">
-                gnutri<span className="text-emerald-500">elev</span>
-              </span>
+              <img
+                src={logoGnutrielevHorizontal}
+                alt="GNutriElev - Nutrição e Bem-Estar"
+                width="760"
+                height="223"
+                className="h-14 w-auto max-w-[230px] object-contain"
+              />
             </a>
             
             <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
