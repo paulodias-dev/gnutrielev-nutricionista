@@ -81,11 +81,11 @@ export const Header: React.FC = () => {
       id="main-header"
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
         scrolled || isOpen
-          ? 'bg-white/90 backdrop-blur-xl border-b border-slate-200/40 shadow-sm py-3'
-          : 'bg-transparent border-b border-transparent py-4'
+          ? 'bg-white/90 backdrop-blur-xl border-b border-slate-200/40 shadow-sm py-2'
+          : 'bg-transparent border-b border-transparent py-3'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between gap-6">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between gap-6 min-h-[68px]">
         <a
           href="#inicio"
           onClick={(e) => handleLinkClick(e, 'inicio')}
@@ -98,11 +98,11 @@ export const Header: React.FC = () => {
             alt="GNutriElev - Nutrição e Bem-Estar"
             width="760"
             height="223"
-            className="h-11 sm:h-12 w-auto max-w-[185px] sm:max-w-[210px] object-contain"
+            className="h-[60px] sm:h-[66px] lg:h-[72px] w-auto max-w-[230px] sm:max-w-[255px] lg:max-w-[285px] object-contain drop-shadow-sm"
           />
         </a>
 
-        <nav className="hidden md:flex items-center gap-7" id="desktop-nav" aria-label="Navegação principal">
+        <nav className="hidden md:flex items-center gap-5 lg:gap-7" id="desktop-nav" aria-label="Navegação principal">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.id}
@@ -127,7 +127,7 @@ export const Header: React.FC = () => {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden md:block shrink-0">
           <Button
             id="header-cta"
             href={NUTRI_PROFILE.whatsappUrl}
