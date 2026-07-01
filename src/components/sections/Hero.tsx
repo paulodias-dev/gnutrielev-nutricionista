@@ -9,8 +9,7 @@ import { ArrowRight, Sparkles, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { CLINIC_METRICS, NUTRI_PROFILE } from '../../utils/data';
 import { scrollToSection } from '../../utils/navigation';
-// @ts-ignore
-import gislenePortrait from '../../assets/images/gislene_exact_portrait_1782125784190.jpg';
+import { draGislenePortrait as gislenePortrait } from '../../assets/images/draGislenePortrait';
 
 export const Hero: React.FC = () => {
   return (
