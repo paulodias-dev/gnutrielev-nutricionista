@@ -64,7 +64,7 @@ export const NUTRI_PROFILE = {
   fullName: 'Gislene Gomes de Mendonça',
   shortName: 'Gislene Gomes',
   displayTitle: 'Nutricionista Clínica e Esportiva',
-  crn: 'CRN-3 84.215/P',
+  crn: 'CRN 26793/P',
   graduation: 'Graduação em Nutrição e formação complementar em nutrição clínica, esportiva e prescrição nutricional individualizada.',
   postGraduation: 'Atualização contínua em nutrição clínica, esportiva, comportamento alimentar e fitoterapia aplicada quando tecnicamente indicada.',
   aboutTitle: 'Nutrição Integrativa com Base em Evidências Científicas',

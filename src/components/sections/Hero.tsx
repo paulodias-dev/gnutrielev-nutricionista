@@ -30,7 +30,7 @@ export const Hero: React.FC = () => {
               className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wider text-emerald-800 bg-emerald-100/60 uppercase border border-emerald-200/40 mb-6"
             >
               <Sparkles aria-hidden="true" className="w-3.5 h-3.5 text-emerald-600 animate-pulse" />
-              <span>Atendimento Nutricional Online & Presencial</span>
+              <span>Atendimento Nutricional</span> <span className="text-black">Online & Presencial</span>
             </motion.div>
 
             <motion.h1
@@ -39,7 +39,7 @@ export const Hero: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold font-display text-slate-900 tracking-tight leading-[1.2] md:leading-[1.1]"
             >
-              Nutricionista em Aracaju e online para <span className="text-emerald-700 relative inline-block">rotina alimentar individualizada<span className="absolute left-0 bottom-1 w-full h-[6px] bg-emerald-100 rounded-full -z-10" /></span>, sem restrições extremas.
+              Nutricionista para <span className="text-emerald-700 relative inline-block">rotina alimentar individualizada<span className="absolute left-0 bottom-1 w-full h-[6px] bg-emerald-100 rounded-full -z-10" /></span> sem restrições extremas.
             </motion.h1>
 
             <motion.p

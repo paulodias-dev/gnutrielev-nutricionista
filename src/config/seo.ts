@@ -1,15 +1,18 @@
 export const seoConfig = {
   baseUrl: 'https://gnutrielev.com.br',
   siteName: 'GNutriElev',
-  title: 'Nutricionista em Aracaju e Online | GNutriElev',
+  title: 'Nutricionista em Aracaju | GNutriElev',
   description:
     'Atendimento nutricional clínico e esportivo em Aracaju-SE e online, com plano alimentar individualizado conforme avaliação, rotina, exames e objetivos.',
   keywords: [
     'nutricionista em Aracaju',
     'nutricionista online',
     'nutricionista clínica em Aracaju',
+    'nutricionista Anápolis',
     'nutricionista esportiva em Aracaju',
     'emagrecimento saudável',
+    'emagrecimento saudável Aracaju',
+    'emagrecimento saudável Anápolis',
     'reeducação alimentar',
     'plano alimentar personalizado',
     'saúde intestinal',
@@ -18,7 +21,7 @@ export const seoConfig = {
     'acompanhamento nutricional',
   ],
   openGraph: {
-    title: 'Nutricionista em Aracaju e Online | GNutriElev',
+    title: 'Nutricionista em Aracaju | GNutriElev',
     description:
       'Atendimento nutricional clínico e esportivo em Aracaju-SE e online, com plano alimentar individualizado conforme avaliação individual.',
     url: 'https://gnutrielev.com.br',
