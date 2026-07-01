@@ -1,19 +1,18 @@
 export const seoConfig = {
   baseUrl: 'https://gnutrielev.com.br',
   siteName: 'GNutriElev',
-  title: 'Nutricionista em Aracaju | GNutriElev',
+  title: 'Nutricionista em Aracaju e Online | GNutriElev',
   description:
-    'Atendimento nutricional clínico e esportivo em Aracaju-SE e online, com plano alimentar individualizado conforme avaliação, rotina, exames e objetivos.',
+    'Atendimento nutricional clínico e esportivo em Aracaju-SE e online, com plano alimentar individualizado, acompanhamento e orientação responsável.',
   keywords: [
     'nutricionista em Aracaju',
     'nutricionista online',
     'nutricionista clínica em Aracaju',
-    'nutricionista Anápolis',
     'nutricionista esportiva em Aracaju',
-    'emagrecimento saudável',
-    'emagrecimento saudável Aracaju',
-    'emagrecimento saudável Anápolis',
+    'nutricionista em Aracaju e online',
+    'emagrecimento saudável em Aracaju',
     'reeducação alimentar',
+    'plano alimentar individualizado',
     'plano alimentar personalizado',
     'saúde intestinal',
     'nutrição feminina',
@@ -21,16 +20,18 @@ export const seoConfig = {
     'acompanhamento nutricional',
   ],
   openGraph: {
-    title: 'Nutricionista em Aracaju | GNutriElev',
+    title: 'GNutriElev | Nutricionista em Aracaju e Online',
     description:
-      'Atendimento nutricional clínico e esportivo em Aracaju-SE e online, com plano alimentar individualizado conforme avaliação individual.',
+      'Nutrição clínica e esportiva com plano alimentar individualizado, acompanhamento e atendimento presencial em Aracaju-SE ou online.',
     url: 'https://gnutrielev.com.br',
     siteName: 'GNutriElev',
     type: 'website',
     locale: 'pt_BR',
     images: [
       {
-        url: 'https://gnutrielev.com.br/og-image.jpg',
+        url: 'https://gnutrielev.com.br/og-image.svg',
+        secureUrl: 'https://gnutrielev.com.br/og-image.svg',
+        type: 'image/svg+xml',
         width: 1200,
         height: 630,
         alt: 'GNutriElev - Nutricionista em Aracaju e atendimento online',
