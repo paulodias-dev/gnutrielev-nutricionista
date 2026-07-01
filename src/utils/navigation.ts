@@ -1,4 +1,4 @@
-export const HEADER_OFFSET = 96;
+export const HEADER_OFFSET = 104;
 
 interface ScrollOptions {
   updateHash?: boolean;
@@ -26,9 +26,13 @@ export const scrollToSection = (targetId: string, options: ScrollOptions = {}) =
     return false;
   }
 
-  targetElement.scrollIntoView({
+  const headerElement = document.getElementById('main-header');
+  const offset = headerElement ? headerElement.getBoundingClientRect().height + 20 : HEADER_OFFSET;
+  const destination = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+
+  window.scrollTo({
+    top: destination > 0 ? destination : 0,
     behavior: 'smooth',
-    block: 'start',
   });
 
   if (updateHash) {
@@ -38,7 +42,7 @@ export const scrollToSection = (targetId: string, options: ScrollOptions = {}) =
   const heading = targetElement.querySelector<HTMLElement>('h1, h2, h3');
   if (heading) {
     heading.setAttribute('tabindex', '-1');
-    window.setTimeout(() => heading.focus({ preventScroll: true }), 350);
+    window.setTimeout(() => heading.focus({ preventScroll: true }), 450);
   }
 
   return true;
