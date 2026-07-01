@@ -8,8 +8,7 @@ import { Calendar, Award, GraduationCap } from 'lucide-react';
 import { Section } from '../layout/Section';
 import { Button } from '../ui/Button';
 import { NUTRI_PROFILE } from '../../utils/data';
-// @ts-ignore
-import gislenePortrait from '../../assets/images/gislene_exact_portrait_1782125784190.jpg';
+import { draGislenePortrait as gislenePortrait } from '../../assets/images/draGislenePortrait';
 
 export const About: React.FC = () => {
   return (
