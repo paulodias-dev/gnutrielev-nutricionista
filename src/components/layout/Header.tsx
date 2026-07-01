@@ -45,7 +45,7 @@ export const Header: React.FC = () => {
     const scrollFromHash = () => {
       const hashTarget = window.location.hash.replace('#', '');
       if (hashTarget) {
-        scrollToSection(hashTarget, { updateHash: false });
+        window.setTimeout(() => scrollToSection(hashTarget, { updateHash: false }), 80);
       }
     };
 
@@ -71,7 +71,13 @@ export const Header: React.FC = () => {
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
-    setIsOpen(false);
+
+    if (isOpen) {
+      setIsOpen(false);
+      window.setTimeout(() => scrollToSection(targetId), 220);
+      return;
+    }
+
     scrollToSection(targetId);
   };
 
@@ -98,7 +104,7 @@ export const Header: React.FC = () => {
             width="512"
             height="512"
             aria-hidden="true"
-            className="h-12 w-12 sm:h-13 sm:w-13 object-contain shrink-0 drop-shadow-sm"
+            className="h-12 w-12 sm:h-[52px] sm:w-[52px] object-contain shrink-0 drop-shadow-sm"
           />
 
           <span className="flex flex-col leading-none text-left">
@@ -170,8 +176,8 @@ export const Header: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200/50 absolute top-full left-0 right-0 overflow-hidden shadow-lg"
+            transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+            className="md:hidden bg-white border-b border-slate-200/50 absolute top-full left-0 right-0 overflow-hidden shadow-lg"
             id="mobile-drawer"
           >
             <nav className="px-6 py-6 flex flex-col gap-5" aria-label="Navegação principal mobile">
