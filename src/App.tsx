@@ -17,6 +17,7 @@ import { StructuredData } from './components/seo/StructuredData';
 import { LegalPage } from './components/legal/LegalPage';
 import { Button } from './components/ui/Button';
 import { CookieConsentBanner } from './components/ui/CookieConsentBanner';
+import { ScrollToTopButton } from './components/ui/ScrollToTopButton';
 
 const legalRoutes = {
   '/politica-de-privacidade': 'privacy',
@@ -83,6 +84,7 @@ export default function App() {
       <Header />
       {legalPageType ? <LegalPage type={legalPageType} /> : path === '/' ? <HomePage /> : <NotFoundPage />}
       <Footer />
+      <ScrollToTopButton />
       <CookieConsentBanner />
     </div>
   );
