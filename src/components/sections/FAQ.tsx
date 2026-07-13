@@ -20,8 +20,8 @@ export const FAQ: React.FC = () => {
     <Section
       id="faq"
       tag="Dúvidas Recorrentes"
-      title="Perguntas Frequentes"
-      subtitle="Esclareça dúvidas sobre atendimento online, avaliação, reembolso, plano alimentar e suporte."
+      title="Dúvidas Sobre Emagrecimento e Massa Muscular"
+      subtitle="Entenda como funciona a avaliação, o plano alimentar, o acompanhamento online e os ajustes para perda de gordura, hipertrofia e recomposição corporal."
       bgType="light"
     >
       <div className="max-w-3xl mx-auto flex flex-col gap-4">
@@ -94,10 +94,10 @@ export const FAQ: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 text-emerald-700 hover:text-emerald-500 hover:underline transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 rounded"
-          aria-label="Falar pelo WhatsApp para tirar dúvidas sobre atendimento nutricional"
+          aria-label="Falar pelo WhatsApp para avaliar perda de peso ou ganho de massa"
         >
           <MessageCircle aria-hidden="true" className="w-4 h-4" />
-          <span>Fale pelo WhatsApp</span>
+          <span>Avaliar meu objetivo</span>
         </a>
       </div>
     </Section>

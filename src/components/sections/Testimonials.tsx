@@ -15,7 +15,7 @@ export const Testimonials: React.FC = () => {
     <Section
       id="depoimentos"
       tag="Depoimentos"
-      title="Relatos de Experiência no Atendimento"
+      title="Relatos de Quem Buscou Evolução Corporal com Rotina Real"
       subtitle="Depoimentos anonimizados e autorizados. Cada acompanhamento é individual, e resultados podem variar conforme avaliação, adesão, histórico e condições clínicas."
       bgType="white"
     >
@@ -80,10 +80,10 @@ export const Testimonials: React.FC = () => {
           <div className="md:col-span-8 flex flex-col gap-2.5">
             <span className="text-xs font-bold tracking-widest text-emerald-400 uppercase">Próximo passo</span>
             <h3 className="text-2xl md:text-3xl font-bold font-display tracking-tight leading-tight">
-              Entenda qual estratégia faz sentido para você
+              Descubra qual estratégia faz sentido para o seu objetivo
             </h3>
             <p className="text-slate-400 text-xs md:text-sm leading-relaxed max-w-xl">
-              A avaliação inicial ajuda a definir objetivos, limitações, rotina e prioridades antes de qualquer plano alimentar.
+              A avaliação inicial ajuda a definir se o foco deve ser perda de gordura, ganho de massa muscular ou recomposição corporal antes de montar o plano alimentar.
             </p>
           </div>
           <div className="md:col-span-4 justify-self-stretch sm:justify-self-start md:justify-self-end">
@@ -95,10 +95,10 @@ export const Testimonials: React.FC = () => {
               variant="primary"
               size="lg"
               icon={ArrowRight}
-              aria-label="Consultar estratégia nutricional pelo WhatsApp"
+              aria-label="Consultar estratégia para perda de peso ou ganho de massa pelo WhatsApp"
               className="w-full sm:w-auto"
             >
-              Consultar pelo WhatsApp
+              Quero Minha Estratégia
             </Button>
           </div>
         </div>

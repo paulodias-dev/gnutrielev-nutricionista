@@ -30,7 +30,7 @@ export const Hero: React.FC = () => {
               className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wider text-emerald-800 bg-emerald-100/60 uppercase border border-emerald-200/40 mb-6"
             >
               <Sparkles aria-hidden="true" className="w-3.5 h-3.5 text-emerald-600 animate-pulse" />
-              <span>Atendimento Nutricional</span> <span className="text-black">Online & Presencial</span>
+              <span>Emagrecimento & Ganho de Massa Muscular</span>
             </motion.div>
 
             <motion.h1
@@ -39,7 +39,7 @@ export const Hero: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold font-display text-slate-900 tracking-tight leading-[1.2] md:leading-[1.1]"
             >
-              Nutricionista para <span className="text-emerald-700 relative inline-block">rotina alimentar individualizada<span className="absolute left-0 bottom-1 w-full h-[6px] bg-emerald-100 rounded-full -z-10" /></span> sem restrições extremas.
+              Nutricionista em Aracaju e online para <span className="text-emerald-700 relative inline-block">perder gordura e ganhar massa muscular<span className="absolute left-0 bottom-1 w-full h-[6px] bg-emerald-100 rounded-full -z-10" /></span>, sem dietas extremas.
             </motion.h1>
 
             <motion.p
@@ -48,7 +48,7 @@ export const Hero: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-5 text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed max-w-xl"
             >
-              Atendimento nutricional clínico e esportivo com plano alimentar personalizado, orientações práticas e acompanhamento definido a partir da sua avaliação, rotina, exames e objetivos.
+              Plano alimentar personalizado para emagrecimento, hipertrofia ou recomposição corporal, com orientação prática a partir da sua avaliação, rotina, exames, treino e objetivos.
             </motion.p>
 
             <motion.div
@@ -65,10 +65,10 @@ export const Hero: React.FC = () => {
                 variant="primary"
                 size="lg"
                 icon={ArrowRight}
-                aria-label="Consultar disponibilidade para atendimento nutricional pelo WhatsApp"
+                aria-label="Consultar avaliação para perda de peso ou ganho de massa muscular pelo WhatsApp"
                 className="justify-center text-sm py-3.5"
               >
-                Consultar Disponibilidade
+                Quero Avaliar Meu Objetivo
               </Button>
               
               <Button
@@ -80,7 +80,7 @@ export const Hero: React.FC = () => {
                 size="lg"
                 className="justify-center text-sm py-3.5"
               >
-                Conhecer Abordagem
+                Ver Estratégia
               </Button>
             </motion.div>
 
@@ -123,7 +123,7 @@ export const Hero: React.FC = () => {
               <div className="aspect-[4/5] rounded-[28px] sm:rounded-[36px] overflow-hidden border-4 border-white shadow-xl shadow-slate-300/60 relative bg-slate-200">
                 <img
                   src={gislenePortrait}
-                  alt={`Nutricionista ${NUTRI_PROFILE.shortName} — atendimento nutricional em Aracaju e online`}
+                  alt={`Nutricionista ${NUTRI_PROFILE.shortName} — emagrecimento e ganho de massa em Aracaju e online`}
                   width="840"
                   height="1050"
                   fetchPriority="high"
@@ -144,8 +144,8 @@ export const Hero: React.FC = () => {
                   <CheckCircle2 aria-hidden="true" className="w-5 h-5 text-emerald-700" />
                 </div>
                 <div>
-                  <h5 className="text-xs font-bold text-slate-900 leading-tight">Plano Individualizado</h5>
-                  <p className="text-[10px] text-slate-500 mt-0.5 leading-snug">Condutas conforme avaliação e rotina real.</p>
+                  <h5 className="text-xs font-bold text-slate-900 leading-tight">Plano para Objetivo</h5>
+                  <p className="text-[10px] text-slate-500 mt-0.5 leading-snug">Emagrecimento, hipertrofia ou recomposição.</p>
                 </div>
               </motion.div>
 

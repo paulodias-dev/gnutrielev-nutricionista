@@ -34,7 +34,7 @@ export const FloatingWhatsApp: React.FC = () => {
             
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" aria-hidden="true" />
-              <span>Consulte horários pelo <strong>WhatsApp</strong>.</span>
+              <span>Avalie seu objetivo pelo <strong>WhatsApp</strong>.</span>
             </div>
 
             <button
@@ -53,7 +53,7 @@ export const FloatingWhatsApp: React.FC = () => {
         href={NUTRI_PROFILE.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Falar pelo WhatsApp para consultar atendimento nutricional"
+        aria-label="Falar pelo WhatsApp para avaliar perda de peso ou ganho de massa muscular"
         id="floating-whatsapp-trigger"
         className="relative w-14 h-14 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center shadow-lg shadow-emerald-700/25 border border-emerald-500 hover:border-emerald-400/80 transition-all cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2"
         whileHover={{ scale: 1.06 }}

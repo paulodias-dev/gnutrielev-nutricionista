@@ -100,18 +100,22 @@ const pageContent = {
       },
       {
         heading: '2. Uso atual no site',
-        body: 'Na versão atual, o site tem finalidade institucional e de contato. Não há formulário próprio de cadastro nem área autenticada. Caso sejam adicionadas ferramentas de analytics, pixels de publicidade, chat ou consentimento, esta política deverá ser atualizada antes da ativação.',
+        body: 'Na versão atual, o site tem finalidade institucional e de contato. Não há formulário próprio de cadastro nem área autenticada. O site pode utilizar cookies necessários, armazenamento local para registrar sua preferência de consentimento e, somente mediante aceite, ferramenta de medição de acessos como Google Analytics.',
       },
       {
-        heading: '3. Plataformas externas',
+        heading: '3. Cookies de medição',
+        body: 'Cookies de medição ajudam a entender acessos, páginas visitadas e desempenho geral do site, sem finalidade de atendimento individual. Você pode recusar essa categoria no banner de cookies ou apagar as preferências no navegador.',
+      },
+      {
+        heading: '4. Plataformas externas',
         body: 'Ao clicar em links para WhatsApp, Instagram, e-mail ou outros serviços externos, você passa a interagir com plataformas que podem utilizar cookies e tecnologias próprias, de acordo com suas respectivas políticas.',
       },
       {
-        heading: '4. Como gerenciar cookies',
+        heading: '5. Como gerenciar cookies',
         body: 'Você pode bloquear ou apagar cookies diretamente nas configurações do seu navegador. O bloqueio de cookies de terceiros pode afetar recursos de plataformas externas acessadas a partir do site.',
       },
       {
-        heading: '5. Atualizações',
+        heading: '6. Atualizações',
         body: 'Esta política será revisada sempre que o site passar a utilizar novas ferramentas de mensuração, publicidade, atendimento, consentimento ou personalização.',
       },
     ],

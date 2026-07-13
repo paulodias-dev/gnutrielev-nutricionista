@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
             </a>
             
             <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
-              Atendimento nutricional individualizado em Aracaju-SE e online, com orientações práticas e condutas definidas conforme avaliação.
+              Atendimento nutricional em Aracaju-SE e online para perda de peso, ganho de massa muscular e recomposição corporal, com condutas definidas conforme avaliação.
             </p>
 
             <div className="flex flex-col gap-2.5 mt-2">
@@ -113,7 +113,7 @@ export const Footer: React.FC = () => {
                 <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center shrink-0">
                   <Phone aria-hidden="true" className="w-4 h-4 text-emerald-400" />
                 </div>
-                <span>WhatsApp para agendamento</span>
+                <span>WhatsApp para avaliar seu objetivo</span>
               </a>
 
               <a

@@ -151,9 +151,9 @@ export const Header: React.FC = () => {
             variant="primary"
             size="sm"
             icon={Calendar}
-            aria-label="Consultar horários pelo WhatsApp"
+            aria-label="Avaliar objetivo de perda de peso ou ganho de massa pelo WhatsApp"
           >
-            Consultar Horários
+            Avaliar Objetivo
           </Button>
         </div>
 
@@ -204,10 +204,10 @@ export const Header: React.FC = () => {
                 variant="primary"
                 size="md"
                 icon={ArrowRight}
-                aria-label="Falar no WhatsApp para consultar atendimento nutricional"
+                aria-label="Falar no WhatsApp para avaliar perda de peso ou ganho de massa"
                 className="w-full mt-2"
               >
-                Falar pelo WhatsApp
+                Avaliar meu objetivo
               </Button>
             </nav>
           </motion.div>

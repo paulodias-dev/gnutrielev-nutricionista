@@ -20,16 +20,16 @@ const iconMap = {
 
 export const Services: React.FC = () => {
   const getWhatsAppWithSpecialty = (title: string) => {
-    const textMsg = `Olá, Gislene! Visitei o site gnutrielev.com.br e gostaria de entender melhor o atendimento nutricional relacionado a ${title}. Qual a disponibilidade de horários?`;
+    const textMsg = `Olá, Gislene! Visitei o site gnutrielev.com.br e quero avaliar uma estratégia de ${title}. Qual a disponibilidade de horários?`;
     return `https://wa.me/${NUTRI_PROFILE.whatsappPhone}?text=${encodeURIComponent(textMsg)}`;
   };
 
   return (
     <Section
       id="especialidades"
-      tag="Especialidades"
-      title="Áreas de Atendimento Nutricional"
-      subtitle="Estratégias alimentares individualizadas conforme avaliação clínica, rotina, preferências, exames e objetivos."
+      tag="Objetivos"
+      title="Escolha a Estratégia Certa para o Seu Objetivo"
+      subtitle="Atendimento nutricional para perda de peso, ganho de massa muscular e recomposição corporal, com plano individualizado conforme avaliação, rotina, treino e exames."
       bgType="light"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -49,7 +49,7 @@ export const Services: React.FC = () => {
                 href={specialtyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`Consultar atendimento nutricional sobre ${spec.title} pelo WhatsApp`}
+                aria-label={`Avaliar estratégia de ${spec.title} pelo WhatsApp`}
               >
                 <div>
                   <div className="flex items-center justify-between gap-2.5 mb-6">
@@ -81,7 +81,7 @@ export const Services: React.FC = () => {
                 </div>
 
                 <div className="mt-auto pt-2 flex items-center gap-1.5 text-xs font-semibold text-emerald-700 group-hover:emerald-500 transition-colors">
-                  <span>Consultar atendimento sobre {spec.title}</span>
+                  <span>Quero avaliar {spec.title}</span>
                   <ArrowRight aria-hidden="true" className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
                 </div>
               </a>

@@ -46,7 +46,7 @@ const homeMarkup = `
   <main data-prerendered="true">
     <section>
       <p>Atendimento nutricional online e presencial em Aracaju-SE</p>
-      <h1>Nutricionista em Aracaju e online para rotina alimentar individualizada</h1>
+      <h1>Nutricionista em Aracaju e online para emagrecimento e ganho de massa muscular</h1>
       <p>${escapeHtml(seoConfig.description)}</p>
       <p>${escapeHtml(NUTRI_PROFILE.consultationDisclaimer)}</p>
       <p>Responsável técnica: ${escapeHtml(NUTRI_PROFILE.fullName)} — ${escapeHtml(NUTRI_PROFILE.crn)}</p>
@@ -55,7 +55,7 @@ const homeMarkup = `
       <p>Instagram: ${escapeHtml(NUTRI_PROFILE.instagram)}</p>
     </section>
     <section>
-      <h2>Áreas de atendimento nutricional</h2>
+      <h2>Objetivos do atendimento nutricional</h2>
       <ul>
         ${SPECIALTIES.map((item) => `<li><strong>${escapeHtml(item.title)}</strong>: ${escapeHtml(item.shortDescription)}</li>`).join('')}
       </ul>

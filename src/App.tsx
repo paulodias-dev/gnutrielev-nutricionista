@@ -16,6 +16,7 @@ import { SEO } from './components/seo/SEO';
 import { StructuredData } from './components/seo/StructuredData';
 import { LegalPage } from './components/legal/LegalPage';
 import { Button } from './components/ui/Button';
+import { CookieConsentBanner } from './components/ui/CookieConsentBanner';
 
 const legalRoutes = {
   '/politica-de-privacidade': 'privacy',
@@ -62,7 +63,7 @@ const NotFoundPage = () => (
         Página não encontrada
       </h1>
       <p className="mt-5 text-sm md:text-base text-slate-600 leading-relaxed">
-        O endereço acessado não existe ou foi movido. Volte para a página inicial para consultar as informações de atendimento nutricional.
+        O endereço acessado não existe ou foi movido. Volte para a página inicial para consultar as informações de atendimento para perda de peso e ganho de massa muscular.
       </p>
       <div className="mt-8 flex justify-center">
         <Button href="/" variant="primary" size="lg" aria-label="Voltar para a página inicial da GNutriElev">
@@ -82,6 +83,7 @@ export default function App() {
       <Header />
       {legalPageType ? <LegalPage type={legalPageType} /> : path === '/' ? <HomePage /> : <NotFoundPage />}
       <Footer />
+      <CookieConsentBanner />
     </div>
   );
 }

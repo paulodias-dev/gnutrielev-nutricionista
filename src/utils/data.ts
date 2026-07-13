@@ -49,7 +49,7 @@ export interface LegalLink {
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Início', href: '#inicio', id: 'nav-inicio' },
   { label: 'Sobre Mim', href: '#sobre', id: 'nav-sobre' },
-  { label: 'Especialidades', href: '#especialidades', id: 'nav-especialidades' },
+  { label: 'Objetivos', href: '#especialidades', id: 'nav-especialidades' },
   { label: 'Depoimentos', href: '#depoimentos', id: 'nav-depoimentos' },
   { label: 'Dúvidas Frequentes', href: '#faq', id: 'nav-faq' },
 ];
@@ -67,10 +67,10 @@ export const NUTRI_PROFILE = {
   crn: 'CRN 26793/P',
   graduation: 'Graduação em Nutrição e formação complementar em nutrição clínica, esportiva e prescrição nutricional individualizada.',
   postGraduation: 'Atualização contínua em nutrição clínica, esportiva, comportamento alimentar e fitoterapia aplicada quando tecnicamente indicada.',
-  aboutTitle: 'Nutrição Integrativa com Base em Evidências Científicas',
-  aboutSubtitle: 'Construa uma rotina alimentar possível, individualizada e compatível com seus objetivos, sem promessas irreais ou restrições extremas.',
   whatsappPhone: '5562981979956',
-  whatsappUrl: 'https://wa.me/5562981979956?text=Ol%C3%A1%2C%20Dra.%20Gislene!%20Visitei%20o%20site%20gnutrielev.com.br%20e%20gostaria%20de%20consultar%20a%20disponibilidade%20para%20atendimento%20nutricional.',
+  aboutTitle: 'Nutrição para Emagrecimento, Massa Muscular e Rotina Real',
+  aboutSubtitle: 'Estratégias individualizadas para reduzir gordura, ganhar massa muscular e manter constância sem dietas extremas.',
+  whatsappUrl: 'https://wa.me/5562981979956?text=Ol%C3%A1%2C%20Dra.%20Gislene!%20Visitei%20o%20site%20gnutrielev.com.br%20e%20quero%20avaliar%20uma%20estrat%C3%A9gia%20nutricional%20para%20perda%20de%20peso%20e%2Fou%20ganho%20de%20massa%20muscular.%20Qual%20a%20disponibilidade%20de%20hor%C3%A1rios%3F',
   address: 'Atendimento on-line e presencial — Av. General Euclides Figueiredo, 425 - Japãozinho, Aracaju - SE',
   addressStreet: 'Av. General Euclides Figueiredo, 425',
   addressDistrict: 'Japãozinho',
@@ -88,52 +88,64 @@ export const NUTRI_PROFILE = {
 
 export const CLINIC_METRICS: Metric[] = [
   {
-    value: 'Plano individual',
-    label: 'Acompanhamento personalizado',
-    description: 'Condutas definidas a partir da anamnese, rotina, preferências, objetivos e contexto clínico de cada paciente.'
+    value: 'Perda de gordura',
+    label: 'Estratégia com avaliação',
+    description: 'Plano alimentar orientado por rotina, preferências, fome, exames e adesão para buscar redução de gordura com segurança.'
+  },
+  {
+    value: 'Massa muscular',
+    label: 'Nutrição para treino',
+    description: 'Ajustes de proteínas, carboidratos, horários e recuperação para favorecer hipertrofia conforme o treino e o objetivo.'
   },
   {
     value: 'Sem extremos',
-    label: 'Abordagem humanizada',
-    description: 'Educação alimentar com flexibilidade, organização e estratégias sustentáveis para o dia a dia.'
-  },
-  {
-    value: 'CRN informado',
-    label: 'Responsabilidade técnica',
-    description: 'Identificação profissional visível e atendimento orientado por avaliação individual.'
+    label: 'Constância na rotina',
+    description: 'Estratégias práticas para manter o plano possível em casa, no trabalho, em viagens e em momentos sociais.'
   }
 ];
 
 export const SPECIALTIES: Specialty[] = [
   {
     id: 'emagrecimento',
-    title: 'Emagrecimento Saudável',
+    title: 'Perda de Peso e Gordura',
     iconName: 'Apple',
-    shortDescription: 'Estratégias para redução de gordura e melhora de hábitos alimentares de forma gradual, segura e compatível com a rotina.',
+    shortDescription: 'Estratégias para reduzir gordura corporal com plano alimentar possível, organização de rotina e acompanhamento individual.',
     detailedPoints: [
-      'Déficit calórico avaliado conforme histórico, rotina e sinais clínicos.',
-      'Estratégias para fome, saciedade, ansiedade alimentar e organização das refeições.',
-      'Plano alimentar com alimentos acessíveis e adaptações possíveis para o cotidiano.'
+      'Déficit calórico definido conforme histórico, exames, rotina e sinais clínicos.',
+      'Estratégias para fome, saciedade, ansiedade alimentar e escolhas fora de casa.',
+      'Ajustes progressivos para perder peso sem depender de restrições radicais.'
     ],
-    focus: 'Saúde & Estética'
+    focus: 'Objetivo Principal'
   },
   {
     id: 'hipertrofia',
-    title: 'Hipertrofia & Desempenho',
+    title: 'Ganho de Massa Muscular',
     iconName: 'Flame',
-    shortDescription: 'Ajuste alimentar para ganho de massa muscular, recuperação e rendimento, respeitando treino, rotina e avaliação individual.',
+    shortDescription: 'Ajuste alimentar para hipertrofia, recuperação e rendimento, respeitando treino, rotina, preferências e avaliação individual.',
     detailedPoints: [
-      'Distribuição de macronutrientes conforme objetivo, composição corporal e treino.',
+      'Distribuição de proteínas, carboidratos e gorduras conforme composição corporal e treino.',
       'Suplementação discutida apenas quando houver indicação e benefício prático.',
-      'Organização de refeições em torno dos horários de treino e recuperação.'
+      'Organização de refeições em torno dos horários de treino, apetite e recuperação.'
     ],
-    focus: 'Performance Esportiva'
+    focus: 'Hipertrofia'
+  },
+  {
+    id: 'recomposicao-corporal',
+    title: 'Recomposição Corporal',
+    iconName: 'Sparkles',
+    shortDescription: 'Estratégia para quem quer reduzir medidas, melhorar definição e preservar ou ganhar massa magra com acompanhamento.',
+    detailedPoints: [
+      'Definição de prioridade entre perda de gordura, manutenção e ganho de massa.',
+      'Acompanhamento de medidas, sinais de evolução e ajustes de adesão.',
+      'Plano pensado para treino, sono, rotina profissional e preferências alimentares.'
+    ],
+    focus: 'Definição'
   },
   {
     id: 'reeducacao',
     title: 'Reeducação Alimentar',
     iconName: 'Utensils',
-    shortDescription: 'Construção de autonomia alimentar, melhora de escolhas e rotina possível, sem culpa ou terrorismo nutricional.',
+    shortDescription: 'Construção de autonomia alimentar para sustentar o emagrecimento, o ganho de massa e uma rotina mais consistente.',
     detailedPoints: [
       'Mapeamento de gatilhos alimentares e dificuldades de adesão.',
       'Orientação para escolhas em casa, trabalho, restaurantes e eventos sociais.',
@@ -142,34 +154,22 @@ export const SPECIALTIES: Specialty[] = [
     focus: 'Estilo de Vida'
   },
   {
-    id: 'saude-intestinal',
-    title: 'Saúde Gastrointestinal',
+    id: 'acompanhamento-evolucao',
+    title: 'Acompanhamento de Evolução',
     iconName: 'Activity',
-    shortDescription: 'Orientação nutricional para queixas como constipação, gases, distensão abdominal e refluxo, sempre conforme avaliação.',
+    shortDescription: 'Monitoramento da evolução para ajustar o plano conforme peso, medidas, treino, fome, energia e adesão ao processo.',
     detailedPoints: [
-      'Ajuste gradual de fibras, hidratação e padrão alimentar.',
-      'Estratégias como FODMAPs apenas quando tecnicamente pertinentes.',
-      'Encaminhamento ou integração com outros profissionais quando necessário.'
+      'Revisão de sinais de evolução, dificuldades práticas e pontos de baixa adesão.',
+      'Ajustes no plano para evitar estagnação e manter direção no objetivo.',
+      'Estratégias para platôs, rotina corrida, refeições fora de casa e eventos sociais.'
     ],
-    focus: 'Qualidade de Vida'
-  },
-  {
-    id: 'estilo-vida',
-    title: 'Nutrição para Mulheres',
-    iconName: 'Sparkles',
-    shortDescription: 'Acompanhamento alimentar para demandas femininas, composição corporal, rotina, sintomas e objetivos individuais.',
-    detailedPoints: [
-      'Avaliação de ingestão, exames, rotina, ciclo e sinais clínicos relevantes.',
-      'Estratégias alimentares para energia, saciedade e qualidade da dieta.',
-      'Condutas personalizadas sem prometer regulação hormonal ou cura.'
-    ],
-    focus: 'Rotina Feminina'
+    focus: 'Evolução'
   },
   {
     id: 'foco-mental',
     title: 'Energia & Rotina',
     iconName: 'Brain',
-    shortDescription: 'Organização alimentar para melhorar consistência, energia percebida e qualidade da rotina, considerando sono, trabalho e hábitos.',
+    shortDescription: 'Organização alimentar para melhorar consistência, energia percebida e adesão ao plano, considerando sono, trabalho e hábitos.',
     detailedPoints: [
       'Análise de horários, hidratação, qualidade das refeições e pausas alimentares.',
       'Estratégias práticas para dias corridos, viagens e rotina profissional.',
@@ -183,24 +183,24 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: 'test-1',
     patientLabel: 'Paciente M.',
-    context: 'Reeducação alimentar',
-    quote: 'O acompanhamento me ajudou a entender melhor minhas escolhas e a montar refeições possíveis para minha rotina, sem a sensação de estar em uma dieta impossível.',
+    context: 'Emagrecimento',
+    quote: 'O acompanhamento me ajudou a organizar melhor as refeições e entender o que fazia sentido para meu objetivo, sem sentir que estava em uma dieta impossível.',
     period: 'Relato autorizado e anonimizado',
     rating: 5,
   },
   {
     id: 'test-2',
     patientLabel: 'Paciente R.',
-    context: 'Rotina e desempenho',
-    quote: 'Eu tinha dificuldade de manter constância por causa do trabalho. Com ajustes simples, consegui organizar melhor compras, refeições e horários.',
+    context: 'Ganho de massa muscular',
+    quote: 'Eu tinha dificuldade de comer o suficiente e ajustar os horários ao treino. Com o plano, ficou mais fácil organizar refeições e manter constância.',
     period: 'Relato autorizado e anonimizado',
     rating: 5,
   },
   {
     id: 'test-3',
     patientLabel: 'Paciente L.',
-    context: 'Saúde gastrointestinal',
-    quote: 'A consulta foi cuidadosa, com explicações claras e mudanças graduais. Senti mais segurança para observar meu corpo e ajustar minha alimentação.',
+    context: 'Recomposição corporal',
+    quote: 'A consulta foi clara e cuidadosa. Consegui entender prioridades, ajustar a rotina e acompanhar melhor minha evolução sem medidas extremas.',
     period: 'Relato autorizado e anonimizado',
     rating: 5,
   }
@@ -209,13 +209,13 @@ export const TESTIMONIALS: Testimonial[] = [
 export const FAQ_ITEMS: FAQItem[] = [
   {
     id: 'faq-1',
-    question: 'Como funciona a consulta online?',
-    answer: 'A consulta online é realizada por chamada de vídeo, mediante confirmação de disponibilidade e envio das orientações prévias. Antes do atendimento, poderão ser solicitadas informações sobre rotina, preferências, histórico de saúde, exames, medicamentos e objetivos, sempre para avaliação nutricional individual.'
+    question: 'Como funciona a consulta para perda de peso ou ganho de massa?',
+    answer: 'A consulta começa com avaliação de rotina, preferências, histórico de saúde, exames, treino, medicamentos e objetivo principal. A partir disso, são definidas estratégias alimentares individualizadas para emagrecimento, ganho de massa muscular ou recomposição corporal.'
   },
   {
     id: 'faq-2',
-    question: 'Como é feita a avaliação física se a consulta for online?',
-    answer: 'No atendimento online, a avaliação pode incluir relato de rotina, medidas corporais autorreferidas, fotos padronizadas quando pertinentes e outros dados enviados pelo paciente. A indicação de cada recurso depende do objetivo, da segurança e da adequação ao caso.'
+    question: 'Como é feita a avaliação corporal no atendimento online?',
+    answer: 'No atendimento online, a avaliação pode incluir relato de rotina, medidas corporais autorreferidas, fotos padronizadas quando pertinentes, evolução de peso e outros dados enviados pelo paciente. A indicação de cada recurso depende do objetivo, da segurança e da adequação ao caso.'
   },
   {
     id: 'faq-3',
@@ -224,17 +224,17 @@ export const FAQ_ITEMS: FAQItem[] = [
   },
   {
     id: 'faq-4',
-    question: 'Vou receber um cardápio pronto na hora?',
-    answer: 'O plano alimentar é construído conforme a avaliação individual. Em alguns casos, as orientações iniciais são alinhadas durante a consulta e o material final é enviado posteriormente por WhatsApp ou e-mail, conforme combinado no atendimento.'
+    question: 'O plano é diferente para emagrecimento e hipertrofia?',
+    answer: 'Sim. Para perda de gordura, o foco costuma envolver déficit calórico, saciedade e adesão. Para ganho de massa muscular, entram ajustes de energia, proteínas, carboidratos, horários de treino e recuperação. Tudo depende da avaliação individual.'
   },
   {
     id: 'faq-5',
-    question: 'Preciso gastar muito com alimentos caros e suplementos importados?',
+    question: 'Preciso usar suplementos para ganhar massa muscular?',
     answer: 'Não necessariamente. A prioridade é adequar a alimentação à sua realidade, orçamento, rotina e preferências. Suplementos só devem ser considerados quando houver indicação, praticidade ou benefício compatível com o caso.'
   },
   {
     id: 'faq-6',
-    question: 'O plano nutricional inclui suporte pós-consulta?',
-    answer: 'O formato de suporte é informado antes da contratação e pode variar conforme o tipo de acompanhamento. Quando contratado, o suporte serve para dúvidas de execução, substituições e ajustes combinados, sem substituir nova avaliação quando necessário.'
+    question: 'Em quanto tempo começo a ver resultados?',
+    answer: 'Resultados variam conforme objetivo, histórico, exames, treino, adesão, sono e condições clínicas. O acompanhamento busca monitorar sinais de evolução e ajustar a estratégia quando necessário, sem prometer prazo fixo ou resultado garantido.'
   }
 ];

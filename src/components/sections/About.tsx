@@ -15,8 +15,8 @@ export const About: React.FC = () => {
     <Section
       id="sobre"
       tag="Sobre a Nutricionista"
-      title="Atendimento Nutricional Individualizado e Responsável"
-      subtitle="Estratégias alimentares construídas a partir de avaliação, escuta clínica, rotina real e objetivos possíveis."
+      title="Estratégia Nutricional para Evoluir com Consistência"
+      subtitle="Emagrecimento, hipertrofia e recomposição corporal com avaliação individual, rotina real e condutas possíveis de seguir."
       bgType="white"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -46,17 +46,17 @@ export const About: React.FC = () => {
         </div>
 
         <div className="lg:col-span-7 flex flex-col items-start text-left">
-          <span className="text-sm font-semibold text-emerald-700 tracking-wide uppercase">Avaliação antes da conduta</span>
+          <span className="text-sm font-semibold text-emerald-700 tracking-wide uppercase">Estratégia antes da dieta</span>
           <h3 className="text-2xl md:text-3xl font-bold font-display text-slate-900 mt-2 tracking-tight">
-            Por que escolher um acompanhamento nutricional personalizado?
+            Por que escolher um acompanhamento para perda de gordura e massa muscular?
           </h3>
           
           <p className="mt-5 text-sm md:text-base text-slate-600 leading-relaxed">
-            Minha abordagem busca unir atualização científica, escuta individualizada e estratégias alimentares viáveis para a rotina de cada paciente. O objetivo é transformar informação técnica em decisões práticas, respeitando preferências, histórico de saúde, exames e contexto de vida.
+            Minha abordagem une atualização científica, escuta individualizada e estratégias alimentares viáveis para a rotina de cada paciente. O objetivo é transformar a avaliação em decisões práticas para buscar perda de gordura, ganho de massa muscular ou recomposição corporal com mais clareza.
           </p>
 
           <p className="mt-4 text-sm md:text-base text-slate-600 leading-relaxed">
-            A consulta nutricional não parte de promessas prontas. O plano é ajustado a partir da avaliação individual e pode envolver educação alimentar, organização de refeições, suplementação quando indicada e acompanhamento da adesão ao longo do processo.
+            A consulta nutricional não parte de promessas prontas. O plano é ajustado a partir da avaliação individual e pode envolver organização de refeições, distribuição de macronutrientes, suplementação quando indicada e acompanhamento da adesão ao longo do processo.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4.5 w-full mt-8">
@@ -88,7 +88,7 @@ export const About: React.FC = () => {
           <div className="mt-8 pt-6 border-t border-slate-200/60 w-full flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <p className="text-xs text-slate-500 font-medium">Atendimento presencial em Aracaju e online</p>
-              <p className="text-[11px] text-slate-400 mt-0.5">Consulte disponibilidade de horários pelo WhatsApp.</p>
+              <p className="text-[11px] text-slate-400 mt-0.5">Informe seu objetivo e consulte disponibilidade pelo WhatsApp.</p>
             </div>
             <Button
               id="about-cta"
@@ -98,9 +98,9 @@ export const About: React.FC = () => {
               variant="secondary"
               size="md"
               icon={Calendar}
-              aria-label="Consultar disponibilidade para avaliação nutricional pelo WhatsApp"
+              aria-label="Consultar avaliação para emagrecimento ou ganho de massa pelo WhatsApp"
             >
-              Consultar Avaliação
+              Avaliar Meu Objetivo
             </Button>
           </div>
         </div>
