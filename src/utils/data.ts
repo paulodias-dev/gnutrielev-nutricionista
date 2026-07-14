@@ -82,7 +82,7 @@ export const NUTRI_PROFILE = {
   instagram: '@g_nutrielev',
   businessName: 'GNutriElev Nutrição',
   businessStatus: 'Dados empresariais em validação',
-  serviceArea: 'Aracaju-SE e atendimento on-line para pacientes elegíveis',
+  serviceArea: 'Acompanhamento nutricional onde você estiver: consultas on-line e atendimento presencial.',
   consultationDisclaimer: 'Acompanhamento nutricional depende de avaliação individual. Resultados variam conforme histórico, exames, adesão e condições clínicas.',
 };
 
