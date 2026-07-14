@@ -173,7 +173,7 @@ export const SPECIALTIES: Specialty[] = [
     detailedPoints: [
       'Análise de horários, hidratação, qualidade das refeições e pausas alimentares.',
       'Estratégias práticas para dias corridos, viagens e rotina profissional.',
-      'Discussão responsável sobre café, suplementos e fitoterápicos quando aplicável.'
+      'Planejamento alimentar focado em evitar quedas de energia e manter o foco ao longo do dia.'
     ],
     focus: 'Performance no Dia a Dia'
   }

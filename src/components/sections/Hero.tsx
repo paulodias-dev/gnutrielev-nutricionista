@@ -39,7 +39,7 @@ export const Hero: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold font-display text-slate-900 tracking-tight leading-[1.2] md:leading-[1.1]"
             >
-              Nutricionista em Aracaju e online para <span className="text-emerald-700 relative inline-block">perder gordura e ganhar massa muscular<span className="absolute left-0 bottom-1 w-full h-[6px] bg-emerald-100 rounded-full -z-10" /></span>, sem dietas extremas.
+              Nutricionista para <span className="text-emerald-700 relative inline-block">perder gordura e ganhar massa muscular<span className="absolute left-0 bottom-1 w-full h-[6px] bg-emerald-100 rounded-full -z-10" /></span>, sem dietas extremas.
             </motion.h1>
 
             <motion.p
@@ -120,12 +120,12 @@ export const Hero: React.FC = () => {
             >
               <div className="absolute inset-0 bg-emerald-600/5 rounded-[28px] sm:rounded-[40px] rotate-3 scale-102 filter blur-md" />
 
-              <div className="aspect-[4/5] rounded-[28px] sm:rounded-[36px] overflow-hidden border-4 border-white shadow-xl shadow-slate-300/60 relative bg-slate-200">
+              <div className="aspect-[3/4] rounded-[28px] sm:rounded-[36px] overflow-hidden border-4 border-white shadow-xl shadow-slate-300/60 relative bg-slate-200">
                 <img
                   src={gislenePortrait}
                   alt={`Nutricionista ${NUTRI_PROFILE.shortName} — emagrecimento e ganho de massa em Aracaju e online`}
-                  width="840"
-                  height="1050"
+                  width="1086"
+                  height="1448"
                   fetchPriority="high"
                   decoding="async"
                   className="w-full h-full object-cover object-center"

@@ -29,8 +29,8 @@ export const About: React.FC = () => {
               <img
                 src={gislenePortrait}
                 alt={`Nutricionista ${NUTRI_PROFILE.shortName} — ${NUTRI_PROFILE.crn}`}
-                width="800"
-                height="1067"
+                width="1086"
+                height="1448"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover object-center"
