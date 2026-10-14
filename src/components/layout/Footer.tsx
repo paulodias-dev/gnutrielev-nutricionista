@@ -6,7 +6,6 @@
 import React from 'react';
 import { Mail, Instagram, MapPin, Shield, CheckCircle2, Phone } from 'lucide-react';
 import { LEGAL_LINKS, NAV_ITEMS, NUTRI_PROFILE } from '../../utils/data';
-import { logoGnutrielevHorizontal } from '../../assets/logoGnutrielev';
 import { scrollToSection, scrollToTop } from '../../utils/navigation';
 
 export const Footer: React.FC = () => {
@@ -33,12 +32,21 @@ export const Footer: React.FC = () => {
               aria-label="Voltar ao início da GNutriElev"
             >
               <img
-                src={logoGnutrielevHorizontal}
-                alt="GNutriElev - Nutrição e Bem-Estar"
-                width="760"
-                height="223"
-                className="h-14 w-auto max-w-[230px] object-contain"
+                src="/favicon.svg"
+                alt=""
+                width="512"
+                height="512"
+                aria-hidden="true"
+                className="h-12 w-12 object-contain shrink-0"
               />
+              <span className="flex flex-col leading-none text-left">
+                <span className="text-[1.42rem] font-semibold tracking-tight text-[#5b247b]">
+                  G <span className="font-bold">Nutri</span><span className="text-[#a855f7] font-semibold">Elev</span>
+                </span>
+                <span className="mt-1 text-[0.56rem] font-bold tracking-[0.28em] uppercase text-[#5b247b]/75">
+                  Nutrição e Bem-Estar
+                </span>
+              </span>
             </a>
             
             <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
