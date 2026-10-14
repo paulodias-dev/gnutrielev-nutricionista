@@ -1,9 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-display: 'Outfit', sans-serif;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* Brand palette based on the new purple/lilac logo. The project already uses Tailwind emerald utilities extensively, so the emerald scale is remapped here to preserve components while changing the visual identity globally. */
+  --color-emerald-50: #faf5ff;
+  --color-emerald-55: #f7effb;
+  --color-emerald-100: #f3e8ff;
+  --color-emerald-200: #e9d5ff;
+  --color-emerald-300: #d8b4fe;
+  --color-emerald-400: #c084fc;
+  --color-emerald-500: #a855f7;
+  --color-emerald-600: #8b3fb5;
+  --color-emerald-700: #6b21a8;
+  --color-emerald-800: #581c87;
+  --color-emerald-900: #3b0764;
+  --color-emerald-950: #24023d;
+
+  --color-teal-50: #faf5ff;
+  --color-teal-100: #f3e8ff;
+  --color-teal-200: #e9d5ff;
+  --color-teal-300: #d8b4fe;
+  --color-teal-400: #c084fc;
+  --color-teal-500: #a855f7;
+  --color-teal-600: #8b3fb5;
+  --color-teal-700: #6b21a8;
+  --color-teal-800: #581c87;
+  --color-teal-900: #3b0764;
 }
 
 html {
@@ -12,7 +36,57 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: #f8fafc; /* slate-50 */
-  color: #0f172a; /* slate-900 */
+  background-color: #fbf8ff;
+  color: #1f1230;
 }
 
+.liquid-glass {
+  background:
+    radial-gradient(circle at 12% 8%, rgb(255 255 255 / 0.9), transparent 31%),
+    radial-gradient(circle at 86% 18%, rgb(233 213 255 / 0.72), transparent 29%),
+    radial-gradient(circle at 48% 105%, rgb(216 180 254 / 0.46), transparent 35%),
+    linear-gradient(135deg, rgb(255 255 255 / 0.78), rgb(255 255 255 / 0.44));
+  border: 1px solid rgb(255 255 255 / 0.62);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.8),
+    inset 0 -28px 48px rgb(88 28 135 / 0.08),
+    0 24px 80px rgb(31 18 48 / 0.2);
+  backdrop-filter: blur(24px) saturate(1.45);
+  -webkit-backdrop-filter: blur(24px) saturate(1.45);
+}
+
+.liquid-glass::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background:
+    linear-gradient(120deg, rgb(255 255 255 / 0.72), transparent 28%),
+    linear-gradient(300deg, rgb(255 255 255 / 0.32), transparent 38%);
+  pointer-events: none;
+}
+
+.liquid-glass::after {
+  content: "";
+  position: absolute;
+  top: -42%;
+  left: 12%;
+  width: 54%;
+  height: 72%;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.32);
+  filter: blur(24px);
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
