@@ -3,31 +3,60 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
-import { Star, UserRound, ArrowRight } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Star, UserRound, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Section } from '../layout/Section';
 import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
 import { TESTIMONIALS, NUTRI_PROFILE } from '../../utils/data';
 
 export const Testimonials: React.FC = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(1);
+
+  useEffect(() => {
+    const updateVisibleCount = () => {
+      setVisibleCount(window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1);
+    };
+
+    updateVisibleCount();
+    window.addEventListener('resize', updateVisibleCount);
+    return () => window.removeEventListener('resize', updateVisibleCount);
+  }, []);
+
+  const pageCount = Math.max(1, Math.ceil(TESTIMONIALS.length / visibleCount));
+  const activePage = Math.min(Math.floor(activeIndex / visibleCount), pageCount - 1);
+  const firstVisibleIndex = activePage * visibleCount;
+
+  const showPrevious = () => {
+    setActiveIndex(((activePage - 1 + pageCount) % pageCount) * visibleCount);
+  };
+
+  const showNext = () => {
+    setActiveIndex(((activePage + 1) % pageCount) * visibleCount);
+  };
+
   return (
     <Section
       id="depoimentos"
       tag="Depoimentos"
       title="Relatos de Quem Buscou Evolução Corporal com Rotina Real"
-      subtitle="Depoimentos anonimizados e autorizados. Cada acompanhamento é individual, e resultados podem variar conforme avaliação, adesão, histórico e condições clínicas."
+      subtitle="Experiências compartilhadas por pacientes. Cada acompanhamento é individual, e resultados podem variar conforme avaliação, adesão, histórico e condições clínicas."
       bgType="white"
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {TESTIMONIALS.map((test) => (
+      <div className="max-w-7xl mx-auto">
+        <div className="overflow-hidden rounded-3xl" aria-live="polite">
+          <div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {TESTIMONIALS.slice(firstVisibleIndex, firstVisibleIndex + visibleCount).map((test) => (
           <Card
             key={test.id}
             variant="glass"
             hoverEffect={true}
-            className="flex flex-col text-left h-full"
+            className="flex flex-col text-left h-full min-h-[27rem]"
           >
-            <div className="p-6 md:p-8 flex flex-col justify-between h-full relative">
+            <div className="p-7 md:p-9 flex flex-col justify-between h-full relative">
               <div className="absolute top-6 right-6 text-slate-100 font-sans font-black text-6xl leading-none select-none pointer-events-none">
                 "
               </div>
@@ -44,7 +73,7 @@ export const Testimonials: React.FC = () => {
                     Contexto: {test.context}
                   </span>
                   <span className="text-[10px] font-bold tracking-tight text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-100">
-                    Relato sem identificação pessoal
+                    Avaliação publicada no Google
                   </span>
                 </div>
 
@@ -66,11 +95,46 @@ export const Testimonials: React.FC = () => {
               </div>
             </div>
           </Card>
-        ))}
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-6 flex items-center justify-between gap-4">
+          <button
+            type="button"
+            onClick={showPrevious}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition-colors hover:border-emerald-300 hover:text-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+            aria-label="Ver depoimento anterior"
+          >
+            <ChevronLeft aria-hidden="true" className="h-5 w-5" />
+          </button>
+
+          <div className="flex items-center gap-2" aria-label={`Página ${activePage + 1} de ${pageCount}`}>
+            {Array.from({ length: pageCount }).map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => setActiveIndex(index * visibleCount)}
+                className={`h-2.5 rounded-full transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 ${index === activePage ? 'w-7 bg-emerald-600' : 'w-2.5 bg-slate-300 hover:bg-slate-400'}`}
+                aria-label={`Ir para a página ${index + 1}`}
+                aria-current={index === activePage ? 'true' : undefined}
+              />
+            ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={showNext}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition-colors hover:border-emerald-300 hover:text-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+            aria-label="Ver próximo depoimento"
+          >
+            <ChevronRight aria-hidden="true" className="h-5 w-5" />
+          </button>
+        </div>
       </div>
 
       <div className="mt-8 max-w-3xl mx-auto text-center text-[11px] leading-relaxed text-slate-500">
-        Os relatos acima descrevem experiências individuais e não representam promessa, garantia ou previsão de resultado. Condutas nutricionais devem ser definidas após avaliação individual.
+        As avaliações acima são experiências individuais e não representam promessa, garantia ou previsão de resultado. Condutas nutricionais devem ser definidas após avaliação individual.
       </div>
 
       <div className="mt-14 md:mt-20 max-w-4xl mx-auto rounded-3xl bg-slate-900 text-white p-8 md:p-12 relative overflow-hidden shadow-xl text-left">
