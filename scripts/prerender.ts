@@ -43,7 +43,7 @@ const updateMeta = (html: string, title: string, description: string, canonicalP
 };
 
 const homeMarkup = `
-  <main data-prerendered="true">
+  <main data-prerendered="true" aria-label="Conteúdo inicial">
     <section>
       <p>Atendimento nutricional online e presencial em Aracaju-SE</p>
       <h1>Nutricionista em Aracaju e online para emagrecimento e ganho de massa muscular</h1>
@@ -99,7 +99,7 @@ fs.writeFileSync(indexPath, updatedHomeHtml);
 
 for (const page of legalPages) {
   const legalMarkup = `
-    <main data-prerendered="true">
+    <main data-prerendered="true" aria-label="Conteúdo inicial">
       <article>
         <h1>${escapeHtml(page.heading)}</h1>
         <p>${escapeHtml(page.description)}</p>
